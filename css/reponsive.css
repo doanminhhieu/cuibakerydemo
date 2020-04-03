@@ -1,0 +1,426 @@
+/*-- Responsive design --*/
+
+@media(max-width:1440px) {
+
+}
+@media(max-width:1336px) {
+
+
+}
+@media(max-width:1280px) {
+
+
+
+    .list_product>li {
+        width: 33.33%;
+    }
+}
+
+@media(max-width:1280px) and (min-width:768px ) {
+
+    .item_banner {
+        width: 254px;
+        height: 254px;
+    }
+
+}
+
+
+
+@media(max-width:1024px) {
+
+
+.list_btn_contact_buy li a { 
+    font-size: 17px;
+}
+    .list_footer_bottom>li {
+        width: 50%;
+        float: left;
+        padding: 15px;
+    }
+    .header_top {
+        position: relative;
+    }
+
+    .right_header_top {
+        position: initial;
+    }
+
+    .header_bottom {
+        margin-top: 0px;
+    }
+
+    .flag {
+
+        bottom: -36px;
+        top: initial;
+    }
+
+
+    .wrapper {
+        padding: 0px;
+    }
+    header {
+        position: initial;
+    }
+
+    .right_header_top {
+        padding-right: 15px;
+    }
+
+    .title_service a {
+    font-size: 16px;
+    color: #2f3439;
+    -webkit-line-clamp: 2;
+    height: 48px;
+}
+
+
+}
+@media(max-width:991px) {
+
+    .right_h_bottom ul li a {
+        color: #fff;
+        font-size: 18px;
+        
+    }
+
+
+    .list_pro_sidebar  {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0px -15px;
+    }
+
+     .list_pro_sidebar li {
+        width: 50%;
+        padding: 15px;
+     }
+     .list_pro_sidebar li:last-child {
+        border-bottom: dashed 1px #CCC;
+     }
+
+    .content_left , .content_right {
+        width: 100%;
+    }
+
+    .buy_online .title_sidebar {
+    text-align: center;
+    }
+    .buy_online .title_sidebar:after {
+        margin: 0 auto;
+        left: 0px;
+        right: 0px;
+    }
+
+
+    .mn-mobile {
+        display: block;
+        padding: 1px 5px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+    }
+
+    .mn-mobile span {
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    border-radius: 100px;
+    display: block;
+    margin: 5px 0;
+}
+.header_bottom .box_h_bottom {
+    background: #f9bc46;
+    padding: 0;
+    margin: 0 auto;
+}
+
+a.a_trangchu_mb * {
+    color: #FFF !important
+} 
+.header_bottom {
+    background: #f9bc46;
+}
+.box_h_bottom {
+    box-shadow: none !important;
+}
+a.a_trangchu_mb  {
+    display: inline-block;
+    width: 50px;
+    color: #FFF !important;
+    font-size: 43px;
+    order: 2;
+    margin-left:  auto;
+}
+.menu-bar {
+    float: right;
+    order: 1
+}
+
+ul.menu.no_box {
+    display: none;
+}
+
+    .box_content_detail .left_detail  , .box_content_detail .right_detail{
+        width: 100%;
+        float: none;
+    }
+
+    .flag img {
+        max-width: 25px;
+    }
+
+    .list_album .item_list {
+        width: 33.33%;
+    }
+
+    .album .item_album {
+        width: 33.33%;
+    }
+
+
+
+}
+@media(max-width:900px) {
+      .left_info {
+         width: 100%;
+      }
+
+    .right_info {
+        width: 100%;
+    }
+
+    .item_menu {
+        width: 100%;
+
+    }
+
+    .box_contact .contact_left {
+        width: 100%;
+        float: none;
+    }
+
+    .box_contact .contact_right {
+        width: 100%;
+        float: none;
+
+    }
+
+
+}
+@media(max-width:800px) {
+
+    .box_main_about .left_main_about{
+        width: 100%;
+    }
+
+    .box_main_about .right_main_about{
+        width: 100%;
+    }
+
+      .list_contac_top li {
+        width: 100%;
+        line-height: 1.8;
+        font-size: 14px;
+    }
+
+
+}
+
+@media(max-width:768px) {
+
+  
+.box_header_top {
+    padding: 15px 0px 15px 0px;
+}
+
+    .album .item_album {
+        width: 50%;
+    }
+
+
+    .list_article>li {
+        width:50%;
+        float: left;
+        padding: 15px;
+    }
+    .title_article a {
+        font-size: 14px;
+        height: 36px;
+    }
+
+    .date_time {
+        font-size: 15px;
+    }
+
+
+
+    .col_list_footer>li {
+        width: 100%;
+    }
+
+    .col_ft_logo {
+        position: absolute;
+        top: 10px;
+        left: 0px;
+        right: 0px;
+        margin:  0 auto;
+    }
+
+    .footer_top {
+        padding-top: 125px;
+    }
+
+
+
+    .col_list_footer .title_footer {
+        text-align: center !important;
+    }
+
+    .form_subscribe {
+        margin: 0 auto;
+    }
+
+    .ft_col .social_icons {
+        text-align: center !important;
+    }
+
+    .list_album .item_list {
+        width: 50%;
+    }
+
+
+    .list_service li {
+        width:50%;
+    }
+
+
+    .form_search {
+        max-width: 100%;
+        left: 45px;
+    }
+    .box_header_top {
+        margin: 0px;
+    }
+
+    .right_header_top , .left_header_top{
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+
+    .left_content , .right_content {
+        width: 100%;
+        float: none;
+
+    }
+
+    .box_caption {
+        position: initial;
+        padding: 15px 0px 65px 0px;
+    }
+
+    .title_caption {
+        font-size: 34px;
+    }
+
+    .short_caption {
+        font-size: 18px;
+    }
+
+    .box_caption:before {
+        opacity:0.8;
+    }
+
+}
+
+@media(max-width:736px) {
+
+}
+@media(max-width:668px) {
+
+}
+@media(max-width:600px) {
+
+}
+@media(max-width:576px) {
+
+    .list_btn_contact_buy li {
+        width: 100%;
+        padding: 10px;
+    }
+
+}
+@media(max-width:480px) {
+      .list_pro_sidebar li {
+        width: 100%;
+        
+     }
+
+    .album_main {
+        max-width: 100%;
+    }
+
+    .images_id_page {
+        height: 150px;
+    }
+
+    .list_article>li {
+        width:100%;
+        float: left;
+        padding: 15px;
+    }
+
+
+
+    .list_service li {
+        width:100%;
+    }
+
+    .list_footer_bottom>li {
+        width: 100%;
+    }
+
+    .title_main, .header_buy_online h3 {
+        font-size: 24px;
+        margin: 0;
+    }
+    
+    .header_buy_online h2 {
+        color: #FFF;
+        font-size: 16px;
+    }
+
+    .left_header_top {
+        height: auto;
+
+    }
+    .right_header_top {
+        height: 45px;
+    }
+
+
+
+}
+@media(max-width:415px) {
+
+}
+@media(max-width:384px) {
+    .list_album .item_list {
+        width: 100%;
+    }
+    .album .item_album {
+        width: 100%;
+    }
+
+
+
+}
+@media(max-width:990px) {
+
+
+}
+
+/*-- //Responsive design --*/
