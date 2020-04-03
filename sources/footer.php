@@ -18,7 +18,7 @@
                         <li><a href="http://localhost/cuicake/lien-he">Liên hệ</a></li>
                         <li><a href="http://localhost/cuicake/mau-banh-kem-da-lat">Sản phẩm</a></li>
                         <li><a href="#">Quyền và Nghĩa vụ người mua</a></li>
-                        <li><a href="i#">Hình thức thanh toán</a></li>
+                        <li><a href="#">Hình thức thanh toán</a></li>
                     </ul>
                 </li>
                 <li class="col_ft_bt">
@@ -58,7 +58,7 @@
             </ul>
         </div>
     </div>
-    <div class="copyright">
+    <div class="copyright <?=isset($home_footer)?"home_footer":""?>">
     	<div class="container">
             <p>© Bản quyền thuộc về thuộc về cuibakery.com</p>
 		 </div>	    	

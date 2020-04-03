@@ -1,1 +1,0 @@
-[{"id":"131","bang":"baiviet","slug":"mau-banh-kem-in-hinh-sinh-nhat-ban-gai","id_bang":"75","step":"2"}]

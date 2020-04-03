@@ -356,6 +356,12 @@ ul.menu.no_box {
 
 @media(max-width:736px) {
 
+    .left_contact, .right_contact {
+    width: 100%;
+    padding: 15px;
+}
+
+
 }
 @media(max-width:668px) {
 
@@ -372,6 +378,12 @@ ul.menu.no_box {
 
 }
 @media(max-width:480px) {
+    .title_detail {
+    font-size: 21px;
+}
+.intro_detail_product .desc b {
+    font-size: 18px;
+    }
       .list_pro_sidebar li {
         width: 100%;
         

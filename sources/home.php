@@ -1,4 +1,4 @@
-
+<?php $home_footer = 1;?>
 <div class="sfooter">
     <div class="container">
         <h1>Củi bakery - Tiệm bánh kem sinh nhật Đà lạt</h1>

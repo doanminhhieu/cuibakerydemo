@@ -1660,7 +1660,7 @@
 			$km 	=100 -  (int)($gia * 100 / $giakm);
 			
 		}
-		$text_gia 	= $gia != 0 ? "From: ".number_format($gia).' <span class="dvt">'.$dvt.'</span>' : $lienhe;
+		$text_gia 	= $gia != 0 ?number_format($gia).' <span class="dvt">'.$dvt.'</span>' : $lienhe;
 		$text_km 	= $giakm != 0 ? number_format($giakm).' <span class="dvt">'.$dvt.'</span>' : "";
  
 		return array("gia" => $gia, "km" => $giakm, "pt" => $km, "text_gia" => $name_gia." <span class='".$class_gia."'>".$text_gia."</span>", "text_km" => $name_km." <span class='".$class_km."'>".$text_km."</span>");

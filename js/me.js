@@ -912,6 +912,7 @@ function XOA_popup_child(){
 };
 // get gia bv
 $(".js_tinhnang_getval").click(function(){
+
     var list_tn = "";
     var js_idbv = $(".js_idbv").val();
 
@@ -926,11 +927,18 @@ $(".js_tinhnang_getval").click(function(){
         url: full_url +"/get_gia_sptinhang/",
         data: {"list_tn": list_tn, "js_idbv": js_idbv},
         success: function(response) {
-          console.log(response)
-          $(".h5_giact_sp").html(response);
+          // console.log(response)
+          $(".price_detail").html(response);
+
         }
     });
-  });
+
+    $(".chon_size ul li.active").removeClass("active");
+    $(this).parent().addClass("active");
+    
+});
+
+
 function AJAX_post(u, d, r) {
     $.ajax({
         type: "POST",

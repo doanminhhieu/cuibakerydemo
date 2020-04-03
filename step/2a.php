@@ -100,12 +100,14 @@
                     <div class="box_info_right">
                         <h1 class="title_detail"><?=SHOW_text($arr_running['tenbaiviet_'.$lang]) ?></h1>
 
+
+                        <form action="<?=$full_url."/gio-hang/" ?>" method="post">
                         <div class="intro_detail_product">
                             <?php
                                 $gia = GET_gia($arr_running['giatien'], $arr_running['giakm'], $glo_lang['dvt'], $glo_lang['gia_lienhe'], "gia_ban", "gia_km", '','' );
                               ?>
                               <div class="price_box"> 
-                                <span class="price_detail"> <?=$gia['text_gia'] ?> </span>
+                                <span class="price_detail"> <?=$gia['text_gia']?> </span>
                                 <span><?=$gia['text_km'] ?></span>
                               </div>
 
@@ -114,18 +116,53 @@
                                 <div class="dv-mota-sp"><?=SHOW_text($arr_running['mota_'.$lang]) ?><div class="clr"></div></div>
                               </ul>
                         </div>
+                        <?php if ($gia['gia'] != 0) { ?>
+                         <?php 
+                              for ($k=1; $k <= 3 ; $k++) {  
+                              if($arr_running['thuoc_tinh_'.$k.'_vi'] != "" && $arr_running['gia_tri_'.$k.'_vi'] != ''){ 
+                            ?>
+                            <div class="chon_size">
+                              <h3><?=$arr_running['thuoc_tinh_'.$k.'_'.$lang] ?></h3>
+                              <ul class="no_style">
+                                <?php 
+                                  ${'gia_tri_'.$k.'_vi'} = explode(",", $arr_running['gia_tri_'.$k.'_vi']);
+                                  $val          = explode(",", $arr_running['gia_tri_'.$k.'_'.$lang]);
+                                  for ($i=0; $i < count(${'gia_tri_'.$k.'_vi'}); $i++) {  
+                                ?>
+                                <li class="<?=$i==0?"active":""?>">
+                                  <input class="js_tinhnang_getval" <?=$i==0?"checked":""?> type="radio" name="tinhnang_<?=$k ?>" value="<?=${'gia_tri_'.$k.'_vi'}[$i] ?>" id="id_tn_<?=$k ?>_<?=$val[$i] ?>">
+                                  <label for="id_tn_<?=$k ?>_<?=$val[$i] ?>"><?=$val[$i] ?></label>
+                                </li>
+                                <?php } ?>
+                                
+                              </ul>
+                            </div>
+                            <?php }} ?>
 
-                        <ul class="list_btn_contact_buy no_style">
-                            <li class="btn_buy_now">
-                              <a href="" class="btn_contact_buy ">Đặt ngay</a>
-                            </li>
-                            <li class="btn_buy_more">
-                              <a href="" class="btn_contact_buy " data-fancybox="" data-src="#quick_advisory">Cần tư vấn thêm</a>
-                            </li>
-                            <li class="btn_buy_call">
-                              <a href="tel:0918.036.835" class="btn_contact_buy ">Gọi ngay</a>
-                            </li>
-                        </ul>
+                            <div class="number_buy">
+                                <h3>Số Lượng: </h3>
+                                <input type="number" name="qty_cart" id="qty_cart" max="50" min="1" value="1">
+                            </div>
+
+                            <input type="hidden" name="id" class="js_idbv" value="<?=$arr_running['id'] ?>">
+                             <ul class="list_btn_contact_buy no_style">
+                                <li class="btn_buy_now">
+                                  <button type="submit" class="btn_contact_buy" name="mua_ngay"><?=$glo_lang['mua_ngay'] ?></button>
+                                </li>
+                                <li class="btn_buy_more">
+                                  <a href="" class="btn_contact_buy " data-fancybox="" data-src="#quick_advisory">Cần tư vấn thêm</a>
+                                </li>
+                                <li class="btn_buy_call">
+                                  <a href="tel:0918.036.835" class="btn_contact_buy ">Gọi ngay</a>
+                                </li>
+                            </ul>
+                          <?php } ?>
+          
+                            </form>
+
+
+
+                        
 
                         <div id="sharelink">
                           <div class="addthis_toolbox addthis_default_style "> <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_google_plusone" g:plusone:size="medium"></a> <a class="addthis_counter addthis_pill_style"></a> </div>

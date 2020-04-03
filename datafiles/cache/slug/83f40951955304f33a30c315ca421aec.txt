@@ -1,1 +1,0 @@
-[{"id":"119","bang":"baiviet","slug":"banh-kem-in-anh-trang-tri-trai-cay-dep","id_bang":"71","step":"2"}]

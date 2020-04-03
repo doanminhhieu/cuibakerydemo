@@ -1,4 +1,5 @@
 <?php
+global $glo_lang;
   if(isset($_POST['xoa_sp']))
   {
       if(isset($_SESSION['cart'][$_POST['id_die']])) unset($_SESSION['cart'][$_POST['id_die']]);
@@ -43,20 +44,37 @@
  
   $thongtin_step   = LAY_anhstep_now(LAY_id_step(1));
 ?>
-<div class="page_conten_page">
-  <div class="pagewrap">
-    <div class="link_page">
-      <ul>
-        <li><i class="fa fa-home"></i><a href="<?=$full_url ?>"><?=$glo_lang['trang_chu'] ?></a><span>/</i></span><a><?=$glo_lang['gio_hang'] ?></a></li>
-        <div class="clr"></div>
-      </ul>
+
+<?php 
+    $bk_breadcrumb = LAY_banner_new("id = 23");
+?>
+
+<section class="images_id_page" style="background: url(<?=$fullpath."/".$bk_breadcrumb[0]['duongdantin']."/".$bk_breadcrumb[0]['icon'] ?>) no-repeat center; background-size:cover" >
+    <div class="container">
+      <h1 class="title_h1">Giỏ hàng</h1>
     </div>
-    <div class="titile_page">
-      <ul>
-        <h3><?=$glo_lang['gio_hang'] ?></h3>
-        <div class="clr"></div>
-      </ul>
-    </div>
+</section>
+<section class="breadcrumb">
+  <div class="container">
+    <ul class="no_style">
+      <li>
+        <i class="fa fa-home"></i>
+        <a href="<?=$full_url ?>"><?=$glo_lang['trang_chu'] ?></a>
+      </li>
+      <li>
+        <span>/</span><span>Giỏ hàng</span>
+      </li>
+     
+    </ul>
+  </div>
+</section>
+
+
+
+<section class="content_page">
+
+  <div class="container ">
+
     <div class="pagewrap page_conten_page page_conten_page_dh" style="padding-top: 0">
       <!--  -->
         <div class="dv-gio-hang">
@@ -175,6 +193,8 @@
     </div>
   </div>
 </div>
+
+
 <script type="text/javascript">
   $(function(){
     $(".dangky_giohang ul h3 a, .is_num_cart").html("<?php if(isset($_SESSION['cart'])) echo count($_SESSION['cart']); else echo "0"; ?>");
