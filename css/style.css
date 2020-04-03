@@ -2205,6 +2205,7 @@ iframe {
     padding: 25px;
     max-width: 550px;
     margin: 0 auto;
+    border-radius: 10px;
 
 }
 .album_main {
@@ -2421,7 +2422,7 @@ ul.contact_ft li.adress_ft::before {
    background: #f9faf9;
 }
 .breadcrumb ul {
-   text-align: center;
+   text-align: left;
 }
 
 .breadcrumb ul li {
@@ -2847,4 +2848,61 @@ ul.contact_ft li.adress_ft::before {
     font-size: 13px;
     top: -2px;
     left: 20px;
+}
+
+.static {
+    text-align: right;
+    width: 100%;
+    align-items: stretch;
+    justify-content: flex-end;
+}
+
+.static  li {
+    color: #FFF;
+    text-align: left;
+    padding-left: 65px;
+    padding-right: 15px;
+    position: relative;
+    font-size: 15px;
+}
+.static  li.static_p:before {
+    content: '';
+}
+.static li {
+    display: inline-block;
+}
+.static  li:before {
+    content: '';
+    width: 55px;
+    height: 55px;
+    background: #daaf3f;
+    position: absolute;
+    left: 0px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-size: 21px;
+}
+.static  li .static-title {
+    color: #daaf3f;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 16px;
+    margin: 0px;
+}
+
+.static  li.static_p:before{
+    content: "\f095";
+     font-family: FontAwesome;
+}
+.static  li.static_e:before{
+     content: "\f003";
+     font-family: FontAwesome;
+}
+
+.static  li.static_t:before{
+     content: "\f017";
+     font-family: FontAwesome;
 }

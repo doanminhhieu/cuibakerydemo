@@ -19,28 +19,20 @@
                 </div>
 
                 <div class="right_header_top">
-                    <ul>
-                         <li>
-                          <i class="fa fa-envelope"></i><?=$glo_lang['email'] ?>: <?php 
-                                  $email_vi = explode("|", $thongtin['email_vi']);
-                                  $i = 0;
-                                  foreach ($email_vi as $val) {
-                                    $i++;
-                                    if($i > 1) echo ' - ';
-                                    echo '<a href="mailto:'.$val.'">'.$val.'</a>';
-                                  }
-                            ?>
-                          </li>
-                           <li><i class="fa fa-volume-control-phone"></i><?=$glo_lang['hotline'] ?>: <?php 
-                                $hotline_vi = explode("|", $thongtin['hotline_vi']);
-                            $i = 0;
-                            foreach ($hotline_vi as $val) {
-                              $i++;
-                              if($i > 1) echo ' - ';
-                              echo '<a href="tel:'.$val.'"><span>'.$val.'</span></a>';
-                            }
-                          ?> <?=$glo_lang['hotline_247'] ?></li>
-                  </ul>
+                    <ul class="static no_style flex">
+                        <li class="static_p">
+                          <p class="static-title">Hotline</p>
+                          <p class="static-info"> 0918.036.835  - 0328.616.294 </p>
+                        </li>                
+                        <li class="static_e">
+                          <p class="static-title">Email</p>
+                          <p class="static-info">cuibakery@gmail.com</p>
+                        </li>                
+                        <li class="static_t">
+                          <p class="static-title">Open</p>
+                          <p class="static-info"> 8AM - 9:30 PM</p>
+                        </li>
+                   </ul>
                 </div>
             </div>
         </div>
