@@ -1951,13 +1951,11 @@ iframe {
     color: #101010;
     font-weight: 500;
     font-size: 14px;
-    padding: 0 15px;
     background: #ffffff;
 }
 
 .menu > li > ul > li:first-child,
 .menu > li ul li:first-child {
-    padding-top: 10px;
     border-radius: 3px 3px 0 0;
     -webkit-border-radius: 3px 3px 0 0;
     -moz-border-radius: 3px 3px 0 0;
@@ -2015,7 +2013,7 @@ iframe {
 
 .projects-menu {
     background: #ffffff;
-    width: 1190px;
+    width: 545px;
     left: 100%;
     position: absolute;
     display: flex;
@@ -2031,7 +2029,7 @@ iframe {
 }
 
 .projects-menu>li {
-    width: 25%;
+    width: 50%;
 }
 
 .projects-menu li a {
@@ -2054,11 +2052,8 @@ iframe {
 }
 
 .projects-menu li a:hover {
-    padding: 0 12px 0 12px;
-    background: rgba(255, 255, 255, 0.2);
     border-color: transparent;
-    background: #f9bc46;
-    color: #fff;
+    color: #f9bc46;
 }
 
 .logo_top {
@@ -2398,7 +2393,7 @@ ul.contact_ft li.adress_ft::before {
     text-align: center;
     left: 0;
     right: 0;
-    font-size: 18px;
+    font-size: 16px;
 }
 .sfooter {
     position: absolute;
@@ -3078,3 +3073,4 @@ p.p_mota_cart { margin-top: 10px; }
 .box_contact_buy  textarea{
  height: 200px;
 }
+

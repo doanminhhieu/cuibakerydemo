@@ -55,9 +55,9 @@
                       </div>
                    </li>
                    <li>
-                     <a class="btn_cart" href="#">
+                     <a class="btn_cart" href="<?=$full_url.'/gio-hang/'?>">
                       <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                      <span class="number_cart">0</span>
+                      <span class="number_cart"><?=Get_total_cart()?></span>
                     </a>
                    </li>
                  </ul>
@@ -69,6 +69,8 @@
         
     </div>
 </header>
+
+
 
 
 

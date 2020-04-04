@@ -246,6 +246,11 @@ ul.menu.no_box {
 
 @media(max-width:768px) {
 
+    .copyright.home_footer {
+    height: 210px;
+}
+
+
    .right_header_top  {
         display: none;
     }

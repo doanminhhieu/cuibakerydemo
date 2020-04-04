@@ -2218,6 +2218,19 @@
     		return array("thanh_tien" => $thanhtien, "gia_giam" => 0);
     	}
     }
+
+    function Get_total_cart(){
+    	$total = 0;
+    	if($_SESSION['cart']){
+
+    		foreach ($_SESSION['cart'] as $key => $value) {
+    			 $total += $value;
+    		}
+
+    	}
+
+    	return $total;
+    }
     function CHECK_thanhtien($ma_khuyen_mai, $glo_lang, $tongtien, $phi_ship, $session_cart){
     	$gia_km 			= "0 ".' '.$glo_lang['dvt'];
     	$gia_kmtext 		= '';
@@ -2242,6 +2255,8 @@
 	    			'thanh_tien' 	=> $tongtien['tontien'] + $phi_ship - $thanhtien_arr['gia_giam']
 	    			);
     }
+
+
     function TRANGTHAI_donhang($id, $glo_lang){
     	if($id == 1) return "<p class='moi'>".$glo_lang['don_hang_moi']."</p>";
     	if($id == 2) return "<p class='dang-giao'>".$glo_lang['don_hang_dang_giao']."</p>";
