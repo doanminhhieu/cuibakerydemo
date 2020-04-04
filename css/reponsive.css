@@ -378,6 +378,10 @@ ul.menu.no_box {
 
 }
 @media(max-width:480px) {
+
+    .box_cart {
+    padding: 15px 0px;
+}
     .title_detail {
     font-size: 21px;
 }

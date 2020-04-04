@@ -244,6 +244,14 @@ style="background: url(<?=$fullpath."/".$bk_register[0]['duongdantin']."/".$bk_r
                   </div>
 
                   <div class="box_des_service">
+                    <div class="price_product">
+                             <?php
+                                $gia = GET_gia($rows['giatien'], $rows['giakm'], $glo_lang['dvt'], $glo_lang['gia_lienhe'], "gia_ban", "gia_km", '','' );
+                              ?>
+                            <span class="price_new"> <?=$gia['text_gia'] ?> </span>
+                            <span class="price_old"><?=$gia['text_km'] ?></span>
+                            
+                        </div>
                       <h3 class="title_service">
                           <a <?=full_href($rows)?> title="<?=SHOW_text($rows['tenbaiviet_'.$lang]) ?>"><?=SHOW_text($rows['tenbaiviet_'.$lang]) ?></a>
                       </h3>

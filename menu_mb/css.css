@@ -401,9 +401,11 @@ p.text_quen_mat_kahu { font-size: 15px; line-height: 1.7; }
 .dv-table-reposive .mobileqty input { width: 100% !important; border: 1px solid #dcdcdc; padding: 4px 7px; max-width: 100px; }
 .dv-table-reposive button.pro_del { width: auto; padding: 6px 15px; background: #43a047; color: #fff; border: none; font-size: 13px; cursor: pointer; margin: 0 auto; }
 .dv-tongtien.no_box { float: right; padding: 10px 0; font-size: 16px; }
-label.tb_tongtien { color: #ff3d3d; font-weight: 700; }
+label.tb_tongtien {    color: #e4144d;
+    font-weight: 700;
+    font-size: 22px;}
 .dv-btn-cart { text-align: center; width: 100%; }
-p.p_mota_cart span { background: #18babd; border-radius: 3px; padding: 2px 5px; margin: 2px 3px 2px 0; font-size: 13px; color: #fff; }
+p.p_mota_cart span { background: #e4144d; border-radius: 3px; padding: 2px 5px; margin: 2px 3px 2px 0; font-size: 13px; color: #fff; }
 .dv_404_gohome { text-align: right; } 
 .dv_404_gohome a { background: url(../myadmin/images/icon_menu_home.png) center left no-repeat; background-size: 16px; padding: 25px 0 20px 22px; color: #636363; } 
 .dv_404_gohome a:hover { text-decoration: underline; } 
@@ -512,7 +514,7 @@ div .quantity button { height: 52px; line-height: 50px; bottom: -1px; font-size:
 .tb_rps td input { width: 50px; border: solid 1px #3c746b; }
 .tb_rps td #pro_sum { width: auto; margin: 0; display: inline-block; margin-right: 0 !important; }
 .tb_rps , .tb_rps * {float: none !important; display: block;}
-.tb_rps td.dv-anh-cart-sp .dv-anh { width: 100%; float: left; margin: 6px 0; }
+
 .tb_rps table tr a { font-size: 14px !important}
 .tb_rps label.container { display: inline-block; }
 .tb_rps #cart_list #pro_sum { font-size: 18px; margin-right: 0; font-weight: normal; display: inline-block; width: 100%; text-align: right; }
@@ -546,8 +548,12 @@ div .newsletter_home ul h2 a { height: 38px; padding: 0; font-size: 14px; line-h
 div .viewLeft { width: 100%; }
 div .viewRight { width: 100%; margin: 15px 0 0; }
 .dv-btn-cart.no_box.formBox a, .dv-send-hd.dv-send-hd-buy a { display: block !important; width: 100%; text-align: center; }
-div .contact.contact_lh.contact_lh_cart.no_box .left { width: 100%; float: left; padding-right: 0; }
-div .contact.contact_lh.contact_lh_cart.no_box .right { width: 100%; float: left; padding-left: 0; }
+
+.box_contact_buy .left, .box_contact_buy .right {
+    width: 100% !important;
+}
+
+
 div .one_new_home ul h3 a, div .tti_more ul h3 a { font-size: 16px; line-height: 23px; }
 div .tin_left ul li, div .tti_more li, div .one_new_home_right li {  width: 110px;}
 div .dv-buy-gh span.p-tamtinh { width: 100px;  }

@@ -126,7 +126,7 @@ style="background: url(<?=$fullpath."/".$bk_register[0]['duongdantin']."/".$bk_r
         </ul>
 
         <div class="bottom_more text_center">
-            <h3><a href="http://localhost/cuicake/mau-banh-kem-da-lat" class="btn_link">xem thêm ›</a></h3>
+            <h3><a href="<?=$fullUrl.'/san-pham'?>" class="btn_link">xem thêm ›</a></h3>
         </div>
     </div>
 </section>

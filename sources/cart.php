@@ -72,13 +72,9 @@ global $glo_lang;
 
 
 <section class="content_page">
-
-  <div class="container ">
-
-    <div class="pagewrap page_conten_page page_conten_page_dh" style="padding-top: 0">
-      <!--  -->
+<div class="box_cart">
+  <div class="container">
         <div class="dv-gio-hang">
-        <!--  -->
           <?php 
             $link_cart = GET_link($full_url, SHOW_text(laySeoName('seo_name', '#_step', '`showhi` = 1 AND `step` = 2')));
             if(!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0)
@@ -177,7 +173,7 @@ global $glo_lang;
                 </span>
               </div>
               <div class="clr"></div>
-              <div class="dv-btn-cart no_box formBox">
+              <div class="dv-btn-cart no_box formBox list_action_cart">
                 <a href="<?=$link_cart ?>" class="pro_del button mar"><?=$glo_lang['tiep_tuc_mua_hang'] ?></a> 
                 <a onclick="cap_nhat_so_luong()" class="cur button pro_del mar"><?=$glo_lang['cap_nhat_so_luong'] ?><img src="images/loading2.gif" class="ajax_img_loading"></a> 
                 <a href="<?=$full_url?>/dat-hang/" class="pro_del button mar"><?=$glo_lang['gui_don_hang'] ?></a>
@@ -189,11 +185,9 @@ global $glo_lang;
           <div class="clr"></div>
         </div>
         <div class="clr"></div>
-      <!--  -->
     </div>
-  </div>
 </div>
-
+</section>
 
 <script type="text/javascript">
   $(function(){

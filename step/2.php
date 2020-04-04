@@ -198,24 +198,36 @@
     <div class="box_content flex">
       <div class="content_left">
           <?php if($slug_table == "step"){ ?>
-         <div class="pro_page flex">
-          <?php 
-            if($nd_total == 0){
-              echo "<div class='dv-notfull'>".$glo_lang['khong_tim_thay_du_lieu_nao']."</div>";
-            }
-            else{
-              foreach ($nd_kietxuat as $rows) {
-            ?>
-              <ul>
-                <a <?=full_href($rows) ?>>
-                <li><?=full_img($rows) ?></li>
-                <h3><?=SHOW_text($rows['tenbaiviet_'.$lang]) ?></h3>
-                </a>
-              </ul>
-          <?php }} ?>
-        
-        </div>
+            <ul class="list_service list_product_cat flex  no_style ">
+              <?php 
+                if($nd_total == 0){
+                  echo "<div class='dv-notfull'>".$glo_lang['khong_tim_thay_du_lieu_nao']."</div>";
+                }
+                else{
+                  foreach ($nd_kietxuat as $rows) {
+                ?>
+                  
+                    <li class="item_service">
+                        <div class="box_item_service">
+                              <div class="img_service">
+                                  <a <?=full_href($rows)?> title="<?=SHOW_text($rows['tenbaiviet_'.$lang]) ?>">
+                                      <img src="<?=full_src($rows) ?>" alt="<?=SHOW_text($rows['tenbaiviet_'.$lang]) ?>">
+                                  </a>
+                              </div>
+
+                              <div class="box_des_service">
+                                  <h3 class="title_service">
+                                      <a <?=full_href($rows)?> title="<?=SHOW_text($rows['tenbaiviet_'.$lang]) ?>"><?=SHOW_text($rows['tenbaiviet_'.$lang]) ?></a>
+                                  </h3> 
+                              </div>
+                          </div>
+                      </li>
+                
+              <?php }} ?>
+            </ul>
+      
         <?php } else { ?>
+
               <div class="pro_list flex">
                 <?php 
                   if($nd_total == 0){

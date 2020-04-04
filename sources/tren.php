@@ -38,11 +38,11 @@ function disabledEvent(e) { if (e.stopPropagation) { e.stopPropagation(); } else
 <body>
 
 	
-	<!-- <div class="loading" >
+	<div class="loading" >
 	    <div class="loader">
 	        <div><div><div><div><div><div></div></div></div></div></div></div>
 	    </div>
-	</div> -->
+	</div>
 	<div class="wrapper">
 	<?=$thongtin['js_google_anilatic'] ?>
 	<div id="fb-root"></div>

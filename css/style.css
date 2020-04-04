@@ -2961,7 +2961,7 @@ ul.contact_ft li.adress_ft::before {
     border-radius: 3px;
 }
 
-#cart_list h2, .contact h2 { text-transform: uppercase; font-size: 18px; line-height: 30px; font-weight: normal; color: #3e3e3e; padding-bottom: 15px; }
+#cart_list h2, .contact h2 { text-transform: uppercase; font-size: 18px; line-height: 30px; font-weight: normal; color: #3e3e3e; padding-bottom: 10px; margin: 0;}
 #cart_list { }
 #cart_list tr { background: #f1f1f1; }
 #cart_list tr a { color: #333; font-weight: normal; font-size: 17px; }
@@ -2990,9 +2990,91 @@ ul.contact_ft li.adress_ft::before {
 .dv-nhom-hd a:hover { color: #e1e1e1; }
 .dv-nhom-hd h3:first-child { border: none; }
 .dv-nhom-hd { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0 40px 0 10px; display: block; }
-.chon_size label {cursor: pointer; display: block; color: #231f20; text-transform: uppercase; font-size: 18px; font-weight: 500; transition: all 0.2s ease-in-out; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; -ms-transition: all 0.2s ease-in-out; }
-.chon_size input { position: absolute; opacity: 0; z-index: -1; }
-.chon_size h3 { width: 120px; float: right; display: block; color: #231f20 !important; text-transform: capitalize !important; font-size: 17px !important; text-align: right; font-weight: 500 !important; line-height: 30px !important; margin: 0 !important; padding: 0 !important; }
-.chon_size ul { float: left; display: inline-block; width: calc(100% - 120px); }
-.chon_size input:checked ~ label { color: #f7980b; }
+
 p.p_mota_cart { margin-top: 10px; }
+
+.box_cart {
+    padding: 35px 0px;
+}
+
+.dv-anh-cart-sp {
+    display: flex !important;
+    flex-wrap: wrap;
+}
+.dv-anh-cart-sp>a {
+    width: 90px;
+}
+.dv-anh {
+
+    width: calc(100% - 100px);
+}
+.list_action_cart {
+    text-align: right;
+}
+.list_action_cart a {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #5f5f5f;
+    color: #FFF;
+    text-transform:uppercase;
+}
+
+.dv-pttt-child { width: calc(100% - 20px); margin: 0 10px; position: relative;}
+.dv-pttt-child .dv-ndpm { display: none; }
+.dv-pttt-child input {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 13px;
+    left: 0px;
+}
+
+.dv-pttt-child img { height: 70px; width: auto; margin: 10px 0; filter: gray; filter: grayscale(100%); opacity: .8; display: none}
+
+.dv-pttt-child h3 { font-size: 15px; font-weight: 500; line-height: 25px; }
+.dv-phuongthucthanhtoan {margin: 15px 0;}
+.dv-ndphuongthuc-thanhtoan.no_box.flex {  margin: 0 -10px;}
+.dv-pttt-child label { display: block; padding: 2px 25px; border: none; outline: none; background: none; height: 100%; }
+/*.dv-pttt-child input[type="radio"]:checked+label { background: #43a04714; display: block; }*/
+.dv-pttt-child input[type="radio"]:checked+label h3 { color: #ff4242; }
+.dv-pttt-child input[type="radio"]:checked+label img { filter: grayscale(0); opacity: 1}
+.dv-ndphuongthuc-thanhtoan .dv-ndpm { 
+    display: none;
+    background: rgba(241, 241, 241, 0.14);
+    border: dashed 1px #e1e1e1;
+    outline: solid 1px #fff;
+    padding: 10px 15px;
+    line-height: 25px;
+    width: calc(100% - 30px);
+    font-size: 14px;
+    margin-top: 10px;
+    margin: 0 auto;
+}
+.dv-ndphuongthuc-thanhtoan .dv-ndpm strong { font-weight: 500; font-size: 16px; color: #000; line-height: 22px; }
+.dv-ndphuongthuc-thanhtoan .dv-ndpm p { margin-bottom: 5px }
+.dv-ndphuongthuc-thanhtoan .dv-ndpm ul li { margin-left: 39px; list-style-type: disc !important; display: list-item !important; margin: 0 0 0 25px; }
+.dv-send-hd-buy { margin-bottom: 0px; display: inline-block; width: 100%; }
+.div-buy-checkout { background: #fff; padding: 15px; }
+.div-buy-checkout div#cart_list { padding: 0; }
+
+@media only screen and (max-width: 767px) {.dv-pttt-child { width: calc(100% - 20px);}}
+
+.box_contact_buy .left, .box_contact_buy .right {
+    width: 50%;
+   padding: 0px 15px;
+
+}
+.box_contact_buy  li {
+      margin: 15px 0px;
+}
+
+.box_contact_buy input, .box_contact_buy   textarea{
+    width: 100%;
+    padding: 10px 15px;
+}
+.box_contact_buy input:focus, .box_contact_buy   textarea:focus{
+    outline: none;
+}
+.box_contact_buy  textarea{
+ height: 200px;
+}

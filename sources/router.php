@@ -63,8 +63,10 @@
             }
             
         }
-        else
+        else{
+            
             include "step/".$thongtin_step['step'].".php";
+        }
     }
     else if($motty == "gio-hang")  {
         include _source."cart.php";
