@@ -774,6 +774,7 @@
       ACTION_db($data, '#_form_lienhe','add',NULL,NULL);
 
       ob_start();
+      
       GUI_email("$admin_email","", base64_decode($tieude_lienhe)  , $_SERVER['SERVER_NAME'], $message, $thongtin);
       ob_end_clean();
 

@@ -26,11 +26,11 @@
                         </li>                
                         <li class="static_e">
                           <p class="static-title">Email</p>
-                          <p class="static-info">cuibakery@gmail.com</p>
+                          <p class="static-info">contact.cuibakery@gmail.com</p>
                         </li>                
                         <li class="static_t">
                           <p class="static-title">Open</p>
-                          <p class="static-info"> 8AM - 9:30 PM</p>
+                          <p class="static-info"> 7AM - 10:30 PM</p>
                         </li>
                    </ul>
                 </div>

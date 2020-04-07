@@ -8,11 +8,11 @@
 		error_reporting(0);
 	}
 	$db_localhost 		 		= "localhost";
-	$db_user 			 		= "cuibakery_db";
-	$db_pass 			 		= 'Gj2FwdhJ';
-	$db_data 			 		= "cuibakery_db";
-	$_SESSION['sub_demo'] 		= "cuicake_demo/";
-	$check_fl_domain 			= "cuibakery.com";
+	$db_user 			 		= "root";
+	$db_pass 			 		= '';
+	$db_data 			 		= "cuicake_demo";
+	$_SESSION['sub_demo'] 		= "cuicake_demo";
+	$check_fl_domain 			= "cuibakery.com/";
 	$cache_file   				= "on";
 	$redis_on_off 				= "off";
 	$_SESSION['sub_demo_check'] = false;

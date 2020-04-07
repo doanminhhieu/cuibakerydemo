@@ -261,7 +261,6 @@ header {
 .header_bottom .box_h_bottom {
     position: relative;
     background: #FFF;
-    border-radius: 15px;
     padding: 10px;
     text-align: left;
 }
@@ -504,9 +503,6 @@ li.has_child_mobile ul li ul li ul li a {
     background-color: #cdcfdd;
 }
 
-.section_main {
-    padding: 35px 0px;
-}
 
 .list_service {
     margin: 0 -15px;
@@ -523,6 +519,7 @@ li.has_child_mobile ul li ul li ul li a {
     padding: 15px;
     border-radius: 15px;
     box-shadow: 0 1px 18px 0 rgba(0,0,0,.09);
+    background: #FFF;
 }
 
 
@@ -951,6 +948,7 @@ a:hover .view_video i {
     border: solid 1px #CCC;
     padding: 15px;
     box-shadow: 0 1px 18px 0 rgba(0,0,0,.09);
+    background: #fff;
 
 }
 
@@ -2475,6 +2473,7 @@ ul.contact_ft li.adress_ft::before {
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 25px;
+    background: #FFF;
 }
 
 .img_captcha{
@@ -2584,7 +2583,6 @@ ul.contact_ft li.adress_ft::before {
 .box_product_detail {
    display: flex;
    flex-wrap: wrap;
-   background: #FFF;
    margin: 0px -15px;
 }
 .left_info {

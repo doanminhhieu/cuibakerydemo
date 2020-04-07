@@ -42,15 +42,8 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box" style="position: relative;">
-    <div style="position: absolute; top: 55px; left:-234px; width: 239px; height: 125px; background-color: white; border-radius: 5px; padding: 10px; border: 5px solid #ccc; border-right:0">
-        <a href="https://web30s.vn" target="_blank"><img src="images/logo_web30s.png" style="margin-top: 10px"></a>
-    </div>
-    <div class="dv-right-login">
-        <p class="tit">Hỗ trợ 24/7: <a href="tel:1900 9477">1900 9477</a></p>
-        <p>KD Hồ Chí Minh: <a href="tel:028 6256 3737">028-6256 3737</a></p>
-        <p>KD Hà Nội: <a href="tel:024 7307 3737">024-7307 3737</a></p>
-        <p>Email: <a href="mailto:web@pavietnam.vn">web@pavietnam.vn</a></p>
-    </div>
+   
+   
     <div class="login-box-body" style=" border-radius: 10px; border: 5px solid #ccc">
         <p class="login-box-msg" style="font-size: 14px; font-weight:bold">HỆ THỐNG QUẢN TRỊ WEBSITE</p>
         <form name="TheForm" method="post" action="<?=$fullpath_admin ?>index.php?module=login"  onsubmit="return CheckRegForm();">
@@ -76,7 +69,7 @@
             </div>
         </form>
     </div>
-    <p style="text-align: center; font-weight: bold; padding-top: 10px; color: #999">Thiết kế và phát triển bởi P.A Việt Nam</p>
+   
 </div>
 </body>
 </html>

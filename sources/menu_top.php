@@ -74,7 +74,10 @@
 			}
 		});
 		var cont_ul = $(".menu > li.is_step_2 > ul").html();
-		$(".menu > li.is_step_2 > ul").html('<div class="projects-menu flex no_box">'+cont_ul+'<div class="clr"></div></div>');
+
+		//$(".menu > li.is_step_2 > ul").html('<div class="projects-menu flex no_box">'+cont_ul+'<div class="clr"></div></div>');
+		//$(".menu > li.is_step_2 > ul").html('<div class="projects-menu flex no_box">'+cont_ul+'<div class="clr"></div></div>');
 	});
 </script>
+
 

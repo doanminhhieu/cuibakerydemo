@@ -35,7 +35,19 @@ function disabledEvent(e) { if (e.stopPropagation) { e.stopPropagation(); } else
 </script>
 <?php } ?>
 </head>
-<body>
+
+<?php 
+    $bkground_body = LAY_banner_new("id = 25");
+?>
+
+<style type="text/css">
+	.section_main {
+    padding: 35px 0px;
+    background: url(<?=$fullpath."/".$bkground_body[0]['duongdantin']."/".$bkground_body[0]['icon'] ?>);
+}
+
+</style>
+<body style="background: url(<?=$fullpath."/".$bkground_body[0]['duongdantin']."/".$bkground_body[0]['icon'] ?>)">
 
 	
 	<div class="loading" >
