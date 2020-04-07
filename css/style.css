@@ -1916,6 +1916,11 @@ iframe {
     padding: 0;
     padding-top: 10px;
     display: block;
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    background: #FFF;
 }
 
 .menu > li > ul:before {
@@ -1949,7 +1954,9 @@ iframe {
     color: #101010;
     font-weight: 500;
     font-size: 14px;
+    width: 50%;
     background: #ffffff;
+    padding: 0pc 10px;
 }
 
 .menu > li > ul > li:first-child,
@@ -1972,9 +1979,7 @@ iframe {
 }
 
 .menu > li > ul > li:last-child > a,
-.menu > li ul li:last-child > a {
-    border: none;
-}
+
 
 .menu > li > ul > li > a,
 .menu > li ul li > a {
@@ -2002,9 +2007,8 @@ iframe {
 }
 
 .menu > li > ul > li:hover > a {
-    padding: 0 12px 0 12px;
-    background: #f9bc46;
-    color: #fff;
+    color: #f9bc46;
+
 }
 
 
@@ -2534,10 +2538,11 @@ ul.contact_ft li.adress_ft::before {
     text-align: left;
     text-transform: capitalize;
     line-height: 1.45;
-    margin-bottom: 10px;
+}
+.item_pro_sidebar .price_product {
+    margin-top: 15px;
 
 }
-
 .title_item_sidebar  a:hover {
     color: #f9bc46;
 }
@@ -2556,9 +2561,11 @@ ul.contact_ft li.adress_ft::before {
 }
 
 .box_group_sidebar .box_buy_online  {
-    background: #c0c906;
+    background: #783e20;
 }
-
+.require_pc {
+    color: #e4144d !important;
+}
 .short_article {
     font-size: 15px;
     max-height: 67px;

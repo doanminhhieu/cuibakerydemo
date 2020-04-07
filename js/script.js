@@ -89,7 +89,7 @@ $(".btn_search").click(function(){
         infinite: true,
         slidesToShow: 4,
         autoplaySpeed:2000,
-        autoplay: false,
+        autoplay: true,
         pauseOnHover:false,
         focusOnSelect: false,
         arrows:true,

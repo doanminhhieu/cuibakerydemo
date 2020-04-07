@@ -12,8 +12,8 @@
 
 <?php 
     $step = 2;
-    $limit = 8;
-    $where = "";
+    $limit = 16;
+    $where = "opt = 1";
     $orderby = '';
     $col='';
     $newproduct = LAY_baiviet($step,$limit,$where,$orderby,  $col );
@@ -88,15 +88,31 @@ style="background: url(<?=$fullpath."/".$bk_register[0]['duongdantin']."/".$bk_r
     </div>
 </section>
 
+<?php 
+    $step = 2;
+    $limit = 16;
+    $where = "opt1 = 1";
+    $orderby = '';
+    $col='';
+    $hotproduct = LAY_baiviet($step,$limit,$where,$orderby,  $col );
 
+    // echo "<pre>";
+    //  print_r($newproduct);
+    // echo "</pre>";
 
+    // die;
+?>
 
+<?php 
+ if(count($hotproduct)) {
+ 
+?>
 <section class="section_main section_service">
     <div class="container">
         <h2 class="title_main"><?=$glo_lang['hot_product'] ?></h2>
         <ul class="list_service  cl no_style ">
             <?php 
-                  foreach ($newproduct as $rows) { 
+                  foreach ($hotproduct as $rows) { 
             ?>
             <li class="item_service">
                 <div class="box_item_service">
@@ -130,26 +146,74 @@ style="background: url(<?=$fullpath."/".$bk_register[0]['duongdantin']."/".$bk_r
         </div>
     </div>
 </section>
+<?php } ?>
 
 <?php 
-    $bk_register = LAY_banner_new("id = 9");
+   /// $bk_register = LAY_banner_new("id = 9");
+
+
+    $step = 2;
+    $limit = 16;
+    $where = "opt2 = 1";
+    $orderby = '';
+    $col='';
+    $bestselling = LAY_baiviet($step,$limit,$where,$orderby,  $col );
+
+    // echo "<pre>";
+    //  print_r($bestselling);
+    // echo "</pre>";
+
+    // die;
 
 ?>
+
+<?php 
+ if(count($bestselling)) {
+ 
+?>
+
 <section class="section_album" 
 style="background: url(<?=$fullpath."/".$bk_register[0]['duongdantin']."/".$bk_register[0]['icon'] ?>) no-repeat;" >
     <div class="container">
         <div class="album_main">
             <div class="header_buy_online">
-                <h3> <?=$glo_lang['album_main'] ?></h3>
+                <h3> <?=$glo_lang['san_pham_ban_chay'] ?></h3>
               
             </div>
-            <div>
-                <?php include "album_main.php" ?>
-                
-            </div>
+            <ul class="list_service slider_service cl no_style slider">
+            <?php 
+                  foreach ($bestselling as $rows) { 
+            ?>
+            <li class="item_service">
+                <div class="box_item_service">
+                    <div class="img_service">
+                        <a <?=full_href($rows)?> title="<?=SHOW_text($rows['tenbaiviet_'.$lang]) ?>">
+                            <img src="<?=checkImage($fullpath, $rows['icon'], $rows['duongdantin'], "") ?>" alt="<?=SHOW_text($rows['tenbaiviet_'.$lang]) ?>">
+                        </a>
+                    </div>
+
+                    <div class="box_des_service">
+                        <div class="price_product">
+                             <?php
+                                $gia = GET_gia($rows['giatien'], $rows['giakm'], $glo_lang['dvt'], $glo_lang['gia_lienhe'], "gia_ban", "gia_km", '','' );
+                              ?>
+                            <span class="price_new"> <?=$gia['text_gia'] ?> </span>
+                            <span class="price_old"><?=$gia['text_km'] ?></span>
+
+                        </div>
+                        <h3 class="title_service">
+                            <a <?=full_href($rows)?> title="<?=SHOW_text($rows['tenbaiviet_'.$lang]) ?>"><?=SHOW_text($rows['tenbaiviet_'.$lang]) ?></a>
+                        </h3>
+                    </div>
+                </div>
+            </li>
+            <?php } ?>
+        </ul>
         </div>
     </div>
 </section>
+
+<?php } ?>
 
 <section class="section_main section_service">
     <div class="container">
