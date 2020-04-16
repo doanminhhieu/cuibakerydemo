@@ -48,6 +48,7 @@
                              <?php
                                 $gia = GET_gia($rows['giatien'], $rows['giakm'], $glo_lang['dvt'], $glo_lang['gia_lienhe'], "gia_ban", "gia_km", '','' );
                               ?>
+                            <span class="text_from">From</span>
                             <span class="price_new"> <?=$gia['text_gia'] ?> </span>
                             <span class="price_old"><?=$gia['text_km'] ?></span>
 

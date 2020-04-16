@@ -1681,12 +1681,12 @@ function check_chon_module_danhmuc($row, $class_ul, $class_li, $class_a, $tb_dan
 	    return $val;
 	}
 	function GET_token(){
-		$token = md5(date('d-m-Y', time())."-PA-".GET_ip());
+		$token = md5(date('d-m-Y', time())."-CB-".GET_ip());
 		return $token;
 	}
 
 	function CHECK_token($token){
-		$token_check = md5(date('d-m-Y', time())."-PA-".GET_ip());
+		$token_check = md5(date('d-m-Y', time())."-CB-".GET_ip());
 		if(trim($token) == $token_check) return true;
 		return false;
 	}

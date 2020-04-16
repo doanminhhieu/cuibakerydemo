@@ -79,6 +79,7 @@
         <label>Mô tả (<?=_lang_nb3_key ?>)</label>
         <textarea id="mota_cn" name="mota_cn" rows="10" cols="80"><?=!empty($mota_cn) ? SHOW_text($mota_cn) : ''?></textarea>
       </div>
+      
       <?php if(CHECK_key_setting("noi-dung-san-pham")){ ?>
       <div class="form-group">
         <label>Mô tả chi tiết (<?=_lang_nb3_key ?>)</label>

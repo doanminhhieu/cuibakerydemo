@@ -1,1 +1,0 @@
-[{"id":"2","bang":"step","slug":"san-pham","id_bang":"2","step":"2"}]

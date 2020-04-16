@@ -1,4 +1,5 @@
 <?php
+
   $kietxuat_name = DB_fet_rd("*", "#_danhmuc", "`step` = '".$slug_step."' AND `id` = '".$arr_running['id_parent']."'", "`id` DESC", 1, "id");
 
   if(empty($kietxuat_name)) 
@@ -19,9 +20,13 @@
 
   // $nd_total = DB_que("SELECT `id` FROM `#_baiviet` WHERE `showhi` =  1 AND `step` IN (".$slug_step.") $wh");
   // $nd_total = mysql_num_rows($nd_total);
+
   $list_hinhcon = LAY_hinhanhcon($arr_running['id'], 50);
+  $list_model = LAY_baiviet_chitiet($arr_running['id'], 50);
+
   // $tinhnang_arr = DB_fet("*","`#_baiviet_tinhnang`","`showhi` = 1 AND `step` = '".$slug_step."' ","`catasort` ASC, `id` DESC","","arr", 1);
   // full_src($thongtin_step, '')
+
 
 ?>
 
@@ -59,12 +64,12 @@
             <div class="box_product_detail">
                 <div class="left_info">
                     <div class="box_info_left">
-                      <?php if(count($list_hinhcon) > 0){ ?>
+                      <?php if(count($list_model) > 0){ ?>
                         <div class="box_slider_for">
                             <div class="slider-for">
 
                                 <?php
-                                 foreach ($list_hinhcon as $rows) {
+                                 foreach ($list_model as $rows) {
                                 ?>
                                  <div class="zoom_img">
                                    <img src="<?=checkImage($fullpath, $rows['icon'], $rows['duongdantin'], "") ?>" alt="">
@@ -78,9 +83,9 @@
                             <div class="slider-nav slick_slider ">
 
                               <?php
-                                 foreach ($list_hinhcon as $rows) {
+                                 foreach ($list_model as $rows) {
                                 ?>
-                                 <div >
+                                 <div data-idModel = "<?=$rows["id"]?>" data-Model = "<?=$rows["seo_name"]?>">
                                    <img src="<?=checkImage($fullpath, $rows['icon'], $rows['duongdantin'], "thumbnew_") ?>" alt="">
                                 </div>
 
@@ -99,23 +104,36 @@
                 <div class="right_info">
                     <div class="box_info_right">
                         <h1 class="title_detail"><?=SHOW_text($arr_running['tenbaiviet_'.$lang]) ?></h1>
-
-
                         <form action="<?=$full_url."/gio-hang/" ?>" method="post">
                         <div class="intro_detail_product">
                             <?php
                                 $gia = GET_gia($arr_running['giatien'], $arr_running['giakm'], $glo_lang['dvt'], $glo_lang['gia_lienhe'], "gia_ban", "gia_km", '','' );
                               ?>
                               <div class="price_box"> 
+                               
                                 <span class="price_detail"> <?=$gia['text_gia']?> </span>
                                 <span><?=$gia['text_km'] ?></span>
                               </div>
 
                               <ul class="desc no_style">
-                                <?=$arr_running['p1'] != "" ? "<b>".$glo_lang['cart_ma_sp'].': '.$arr_running['p1']."</b>" : "" ?>
+                                
                                 <div class="dv-mota-sp"><?=SHOW_text($arr_running['mota_'.$lang]) ?><div class="clr"></div></div>
+                                
                               </ul>
                         </div>
+                        <?php if(count($list_model)>0) { ?>
+
+                          <div class="chon_model">
+                              <h3>Chọn Mẫu <span class="click_text">(click vô hình để chọn mẫu)</span></h3>
+                              <div class="no_style">
+                                  <label class="active">
+                                    <input class="model"  checked="" type="hidden" name="" value="<?=$list_model[0]["seo_name"]?>" >
+                                    <input class="id_model"  checked="" type="hidden" name="" value="<?=$list_model[0]["id"]?>" >
+                                    <span class="text_model"><?=$list_model[0]["seo_name"]?></span>
+                                  </label>
+                              </div>
+                          </div>
+                        <?php } ?>
                         <?php if ($gia['gia'] != 0) { ?>
                          <?php 
                               for ($k=1; $k <= 3 ; $k++) {  

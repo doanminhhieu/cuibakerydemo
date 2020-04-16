@@ -63,21 +63,9 @@
         </a>
       </li>
       <?php } ?>
-      <!-- Dien thoai ho tro-->
-      <li>
-        <a href="tel:1900 9477">
-          <i class="fa fa-phone"></i>
-          Hỗ trợ 24/7: 1900 9477
-        </a>
-      </li>
-      <!-- Link toi mail ho tro -->
-      <li>
-        <a href="mailto:web@pavietnam.vn">
-          <i class="fa fa-envelope-o"></i>
-          web@pavietnam.vn
-        </a>
-      </li>
-      <!-- Ra trang chinh ben ngoai-->
+ 
+      
+    <!-- Ra trang chinh ben ngoai-->
       <li>
         <a href="?module=quan-ly-thanh-vien&action=dang-xuat">
           <i class="fa fa-sign-out"></i>

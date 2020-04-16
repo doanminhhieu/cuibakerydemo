@@ -4,6 +4,7 @@
     foreach ($_POST as $key => $value) {
       ${$key} = $value;
     }
+    // biến đó tạo chổ này, lấy name từ pót gán
   }
 
   if(!empty($_POST))
@@ -12,7 +13,7 @@
     $data['seo_title_vi']       = $seo_title_vi;
     $data['seo_description_vi'] = $seo_description_vi;
     $data['seo_keywords_vi']    = $seo_keywords_vi;
-    $data['tenbaiviet_vi']       = $tenbaiviet_vi;
+    $data['tenbaiviet_vi']      = $tenbaiviet_vi;
     $data['diachi_vi']          = $diachi_vi;
     $data['sodienthoai_vi']     = $sodienthoai_vi;
     $data['hotline_vi']         = $hotline_vi;
@@ -36,6 +37,8 @@
     
     $data['fb_app']             = $fb_app;
     $data['fb_id']              = $fb_id;
+    $data['sign_pro']              = $sign_pro;
+    $data['sign_ar']              = $sign_ar;
 
     $data['em_ip']              = $em_ip;
     $data['em_taikhoan']        = $em_taikhoan;
@@ -228,6 +231,16 @@
             <label>Email</label>
             <input type="text" class="form-control" name="email_vi" value="<?=$email_vi ?>">
           </div>
+     
+          <div class="form-group">
+            <label>Chữ ký bài viết</label>
+            <textarea name="sign_ar" name="sign_ar"  class="paEditor" rows="10" cols="80"><?=!empty($sign_ar) ? SHOW_text($sign_ar) : ''?></textarea>
+          </div>
+          <div class="form-group">
+            <label>Chữ ký bài sản phẩm</label>
+            <textarea name="sign_pro" name="sign_pro"  class="paEditor" rows="10" cols="80"><?=!empty($sign_pro) ? SHOW_text($sign_pro) : ''?></textarea>
+          </div>
+
         </div>
         <div class="box p10">
           <div class="form-group">

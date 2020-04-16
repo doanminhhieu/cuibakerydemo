@@ -8,17 +8,18 @@
                     <ul class="contact_ft no_style">
 					 	<li class="adress_ft">78 Hùng Vương, Phường 9, Đà Lạt</li>
 					 	<li class="phone_ft">0918.036.835</li>
-					 	<li class="mail_ft">cuibakery@gmail.com</li>
+					 	<li class="mail_ft">contact.cuibakery@gmail.com</li>
 					</ul>
                 </li>
                 <li class="col_ft_bt">
                     <h2 class="title_footer">Link nhanh </h2>
 
                     <ul class="list_ft no_style">
-                        <li><a href="http://localhost/cuicake/lien-he">Liên hệ</a></li>
-                        <li><a href="http://localhost/cuicake/mau-banh-kem-da-lat">Sản phẩm</a></li>
-                        <li><a href="#">Quyền và Nghĩa vụ người mua</a></li>
-                        <li><a href="#">Hình thức thanh toán</a></li>
+                        <li><a href="https://cuibakery.com/lien-he">Liên hệ</a></li>
+                        <li><a href="https://cuibakery.com/san-pham">Sản phẩm</a></li>
+                        <li><a href="https://cuibakery.com/tin-tuc-su-kien">Tin tức & sự kiện</a></li>
+                        <li><a href="https://cuibakery.com/gio-hang/">Giỏ hàng</a></li>
+                       
                     </ul>
                 </li>
                 <li class="col_ft_bt">

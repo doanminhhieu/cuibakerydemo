@@ -19,14 +19,14 @@
   }
 
   //check token
-  if(isset($_GET['del']) || isset($_GET['token'])){ //xoa
-    $token = isset($_GET['token']) ? $_GET['token'] : "";
-    if(!CHECK_token($token)){
-      $_SESSION['show_message_off'] = "Mã token không hợp lệ!";
-      header("Location: ".$re_url);
-      exit();
-    }      
-  }
+  // if(isset($_GET['del']) || isset($_GET['token'])){ //xoa
+  //   $token = isset($_GET['token']) ? $_GET['token'] : "";
+  //   if(!CHECK_token($token)){
+  //     $_SESSION['show_message_off'] = "Mã token không hợp lệ!";
+  //     header("Location: ".$re_url);
+  //     exit();
+  //   }      
+  // }
   if(isset($_POST['token'])){
     $token = $_POST['token'];
     if(!CHECK_token($token)){

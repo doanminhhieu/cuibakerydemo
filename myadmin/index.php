@@ -25,6 +25,7 @@
  
   $module_setting = DB_que("SELECT * FROM `#_module_setting`");
   while($rows     = mysql_fetch_assoc($module_setting)) {
+    
     if($rows['id'] == 38) $array_only_bv  = explode(",", $rows['ten_key']);
     if($rows['id'] == 39) $array_tn       = explode(",", $rows['ten_key']);
     if($rows['id'] == 43) $danhmuc_slider = explode(",", $rows['ten_key']);
@@ -48,6 +49,7 @@
   }
 
   include _source.'post.php';
+
   //check login IP
   if(!empty($_SESSION['luluwebproadmin'])) {
     $check_iplogin = DB_que("SELECT * FROM `#_members` WHERE `id`='".sql_id($_SESSION['luluwebproadmin'])."' AND `ip_login` = '".sql_id(GET_ip())."' LIMIT 1");
@@ -71,11 +73,13 @@
   //
   //lay danh sach menu
   $list_tn     = DB_que("SELECT * FROM `#_module_tinhnang` WHERE `showhi`= 1 ORDER BY `sort` ASC");
+
   $md_tinhnang = array();
   while ($r    = mysql_fetch_assoc($list_tn)) {
   $md_tinhnang[$r['m_action']] = $r;
   }
   //
+
   $lang_nb2   = CHECK_key_setting("ngon-ngu-tieng-anh");
   $lang_nb3   = CHECK_key_setting("them-ngon-ngu-thu-3");
   $lang_nb4   = CHECK_key_setting("them-ngon-ngu-thu-4");
@@ -124,17 +128,20 @@
         // echo _source.$action."/module-".$action.".php";
          //die;
         include _source.$action."/module-".$action.".php" ;
+
       } else {
+
         include _source."home.php";
       }
     }else{
+
       include _source."home.php";
     }
 
 ?>
   </div>
   <footer class="main-footer">
-    Thiết kế và phát triển bởi P.A VietNam Ltd.
+    Thiết kế và phát triển bởi cuibakery.com
   </footer>
 </div>
 <?php include _source."js_files.php"; ?>

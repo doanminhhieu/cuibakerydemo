@@ -4,6 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta property="fb:admins" content="<?=$thongtin['fb_id'] ?>"/>
 <meta property="fb:app_id" content="<?=$thongtin['fb_app'] ?>" />
+<meta name="geo.region" content="VN-35" />
+<meta name="geo.placename" content="Đà Lạt" />
+<meta name="geo.position" content="11.940242;108.437576" />
+<meta name="ICBM" content="11.940242, 108.437576" />
 
 <meta name="format-detection" content="telephone=no" />
 <base href="<?=$fullpath ?>/" />
@@ -37,7 +41,7 @@ function disabledEvent(e) { if (e.stopPropagation) { e.stopPropagation(); } else
 </head>
 
 <?php 
-    $bkground_body = LAY_banner_new("id = 25");
+    $bkground_body = LAY_banner_new("id = 27");
 ?>
 
 <style type="text/css">
@@ -50,6 +54,33 @@ function disabledEvent(e) { if (e.stopPropagation) { e.stopPropagation(); } else
 <body style="background: url(<?=$fullpath."/".$bkground_body[0]['duongdantin']."/".$bkground_body[0]['icon'] ?>)">
 
 	
+	<!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v6.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your customer chat code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="113855833317011"
+  logged_in_greeting="Chào bạn ! Mình có thể giúp gì cho bạn ?"
+  logged_out_greeting="Chào bạn ! Mình có thể giúp gì cho bạn ?">
+      </div>
+
+
 	<div class="loading" >
 	    <div class="loader">
 	        <div><div><div><div><div><div></div></div></div></div></div></div>

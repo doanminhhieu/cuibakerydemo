@@ -29,7 +29,9 @@
         }
         $list_phanquyen['tn_'.$val['id']] = array("xem" => $xem,"them" => $them,"sua" => $sua,"xoa" => $xoa,"menu" => $menu);
       }
+
       foreach (LEFT_mainmenu_new() as $val) {
+
         $xem        = isset($_POST['m_xem'.$val['id']]) ? 1 : 0;
         $them       = isset($_POST['m_them'.$val['id']]) ? 1 : 0;
         $sua        = isset($_POST['m_sua'.$val['id']]) ? 1 : 0;
@@ -39,23 +41,34 @@
           $list_phanquyen[$val['id']] = array("xem" => $xem,"them" => $them,"sua" => $sua,"xoa" => $xoa,"menu" => $menu);
         }
       }
+
     }
+
+
+
 
   if(!empty($_POST))
     {
+
       $data               = array();
       $data['ten_vi']     = $ten_vi;
       $data['sort']       = $sort;
       $data['showhi']     = $showhi;
       $data['phan_quyen']  = json_encode($list_phanquyen);
 
+
       if($id == 0){
-        $id                           = ACTION_db($data, $table , 'add',NULL,NULL);
+        
+
+        $id  = ACTION_db($data, $table , 'add',NULL,NULL);
         
         $_SESSION['show_message_on'] =  "Thêm chủ đề thành công!";
         LOCATION_js($url_page);
         exit();
+
       }else{
+
+      
         ACTION_db($data, $table, 'update', NULL, "`id` = ".$id);
         $_SESSION['show_message_on'] =  "Cập nhật chủ đề thành công!";
       }
@@ -64,18 +77,31 @@
     
   if($id > 0)
     {
+      
+
+
       $sql_se             = DB_que("SELECT * FROM `$table` WHERE `id`='".$id."' LIMIT 1");
       $sql_se             = mysql_fetch_array($sql_se);
       $ten_vi             = SHOW_text($sql_se['ten_vi']);
       $sort               = number_format(SHOW_text($sql_se['sort']),0,',','.');
       $showhi             = SHOW_text($sql_se['showhi']);
       $phan_quyen         = $sql_se['phan_quyen'];
+
+
       $list_phanquyen     = json_decode($phan_quyen, true);
+    
+      print_r($list_phanquyen);
+ 
+     
+
     }
     else 
     {
+
       $sort   = DB_que("SELECT * FROM `$table`");
       $sort   = number_format((mysql_num_rows($sort) + 1),0,',','.');
+   
+
     }
 ?>
 
@@ -143,12 +169,15 @@
                       <th class="w80 text-center">Menu</th>
                     </tr>
                     <!-- // -->
+
                     <?php
                         
                         $cl = 0;
                         foreach ($sql_array as $rows) 
                         {
+
                           if($rows['id_parent'] != 0) continue;
+
                           $cl++;
                           $ten_vi             = SHOW_text($rows['ten_vi']);
                           $m_xem              = SHOW_text($rows['m_xem']);
@@ -203,16 +232,25 @@
                       <!-- //cap 2 -->
                       <?php 
                         if($rows['m_action'] == 'main-module'){
+                          echo "<pre>";
+
+                          print_r(LEFT_mainmenu_new());
+                           echo "</pre>";
               
                         foreach (LEFT_mainmenu_new() as $val) { 
+                          echo $val['id'];
+
                           $cl++;
                           $xem  = !empty($list_phanquyen[$val['id']]['xem']) ? $list_phanquyen[$val['id']]['xem'] :0;
                           $them = !empty($list_phanquyen[$val['id']]['them']) ? $list_phanquyen[$val['id']]['them'] :0;
                           $sua  = !empty($list_phanquyen[$val['id']]['sua']) ? $list_phanquyen[$val['id']]['sua'] :0;
                           $xoa  = !empty($list_phanquyen[$val['id']]['xoa']) ? $list_phanquyen[$val['id']]['xoa'] :0;
                           $menu = !empty($list_phanquyen[$val['id']]['menu']) ? $list_phanquyen[$val['id']]['menu'] :0;
+
+
                       ?>
                       <tr>
+
                         <td class="w80 text-center"><?=$cl ?></td>
                         <td class="dvhide-row">
                           <span class="sp-list-cap1">╚═►</span>
@@ -221,21 +259,27 @@
                           </div>
                         </td>
                         <td class="w100 text-center">
+                          <?php  echo "xem:" .$xem; ?>
                           <input type="checkbox" class='minimal' name="m_xem<?=$val['id'] ?>" <?=(($xem == 1) ? "checked='checked'" : "" )?> >
                         </td>
                         <td class="w100 text-center">
+                          <?php echo $list_phanquyen[$val['id']]['menu'];  echo "Thêm:" .$them; ?>
                           <input type="checkbox" class='minimal' name="m_them<?=$val['id'] ?>" <?=(($them == 1) ? "checked='checked'" : "" )?> >
                         </td>
                         <td class="w100 text-center">
+                          <?php  echo "sua:" .$sua; ?>
                           <input type="checkbox" class='minimal' name="m_sua<?=$val['id'] ?>" <?=(($sua == 1) ? "checked='checked'" : "" )?> >
                         </td>
                         <td class="w100 text-center">
+                          <?php  echo "xoa:" .$xoa; ?>
                           <input type="checkbox" class='minimal' name="m_xoa<?=$val['id'] ?>" <?=(($xoa == 1) ? "checked='checked'" : "" )?> >
                         </td>
                         <td class="w100 text-center">
+                          <?php  echo "menu:" .$menu; ?>
                           <input type="checkbox" class='minimal' name="m_menu<?=$val['id'] ?>" <?=(($menu == 1) ? "checked='checked'" : "" )?> >
                         </td>
                       </tr>
+
                       <?php }} ?>
                       <!--  -->
                       <?php
