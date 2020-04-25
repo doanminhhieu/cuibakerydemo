@@ -12,11 +12,13 @@ global $glo_lang;
   }
 
   if(isset($_POST['id'])){
+
     $id = isset($_POST['id']) && $_POST['id'] > 0 ? $_POST['id'] : 0;
     if($id == 0) {
       LOCATION_js($full_url."/gio-hang/");
       exit();
     } 
+
     $tinhnang = "";
     if(isset($_POST['tinhnang_1'])) {
       $tinhnang .= $tinhnang == "" ? trim($_POST['tinhnang_1']) : ','.trim($_POST['tinhnang_1']);
@@ -27,19 +29,30 @@ global $glo_lang;
     if(isset($_POST['tinhnang_3'])) {
       $tinhnang .= $tinhnang == "" ? trim($_POST['tinhnang_3']) : ','.trim($_POST['tinhnang_3']);
     }
+
     $_SESSION['tinhnang'][$id."_".md5($tinhnang)] = $tinhnang;
 
     if(isset($_POST['qty_cart']) && is_numeric($_POST['qty_cart']) && $_POST['qty_cart'] > 0){
       $_SESSION['cart'][$id."_".md5($tinhnang)] = $_POST['qty_cart'];
     }
     else{
+
       $_SESSION['cart'][$id."_".md5($tinhnang)] = 1;
     }
 
+    if(isset($_POST['id_model']) && $_POST['id_model'] > 0){
+      
+         $_SESSION['cart'][$id."_".md5($tinhnang)."_".$_POST['id_model']] = $_POST['qty_cart'];
+    }
+
     LOCATION_js($full_url."/gio-hang/");
+
   }
 
-  // print_r($_SESSION['cart']);
+ // print_r($_GET['qty_cart']."fsdfsdf");
+    
+
+  print_r($_SESSION['cart']);
   // unset($_SESSION['cart']);
  
   $thongtin_step   = LAY_anhstep_now(LAY_id_step(1));

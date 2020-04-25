@@ -106,7 +106,15 @@
                         <h1 class="title_detail"><?=SHOW_text($arr_running['tenbaiviet_'.$lang]) ?></h1>
                         <form action="<?=$full_url."/gio-hang/" ?>" method="post">
                         <div class="intro_detail_product">
-                            <?php
+                           
+
+                              <ul class="desc no_style">
+                                
+                                <div class="dv-mota-sp"><?=SHOW_text($arr_running['mota_'.$lang]) ?><div class="clr"></div></div>
+                                
+                              </ul>
+
+                               <?php
                                 $gia = GET_gia($arr_running['giatien'], $arr_running['giakm'], $glo_lang['dvt'], $glo_lang['gia_lienhe'], "gia_ban", "gia_km", '','' );
                               ?>
                               <div class="price_box"> 
@@ -114,12 +122,6 @@
                                 <span class="price_detail"> <?=$gia['text_gia']?> </span>
                                 <span><?=$gia['text_km'] ?></span>
                               </div>
-
-                              <ul class="desc no_style">
-                                
-                                <div class="dv-mota-sp"><?=SHOW_text($arr_running['mota_'.$lang]) ?><div class="clr"></div></div>
-                                
-                              </ul>
                         </div>
                         <?php if(count($list_model)>0) { ?>
 
@@ -127,8 +129,8 @@
                               <h3>Chọn Mẫu <span class="click_text">(click vô hình để chọn mẫu)</span></h3>
                               <div class="no_style">
                                   <label class="active">
-                                    <input class="model"  checked="" type="hidden" name="" value="<?=$list_model[0]["seo_name"]?>" >
-                                    <input class="id_model"  checked="" type="hidden" name="" value="<?=$list_model[0]["id"]?>" >
+                                    <input class="model"  checked="" type="hidden" name="model" value="<?=$list_model[0]["seo_name"]?>" >
+                                    <input class="id_model"  checked="" type="hidden" name="id_model" value="<?=$list_model[0]["id"]?>" >
                                     <span class="text_model"><?=$list_model[0]["seo_name"]?></span>
                                   </label>
                               </div>
@@ -177,10 +179,32 @@
                           <?php } ?>
           
                             </form>
+                        <?php  if ($gia['gia'] == 0) { ?>
 
+                                  <div class="box_buy_online box_ft_online contact_detail ">
+                                    <p class="noti_sent_phone"> Gửi SĐT chúng tôi sẽ gọi lại cho bạn ngay !</p>
+                                      <form action="" class="formBox no_box" method="post" accept-charset="UTF-8" name="formnamecontact3" id="formnamecontact3">
+                                      <input type="hidden" name="send_lienhe">
+                                      <input type="hidden" class="lang_ok" value="<?=$glo_lang['yeu_cau_cua_ban_da_duoc_gui'] ?>">
+                                     
 
+                                        <div class="phone">
+                                          <input type="hidden" name="s_dienthoai_s" value="<?=base64_encode($glo_lang['so_dien_thoai']) ?>">
+                                          <input class="cls_data_check_form_3" data-rong="1"  name="s_dienthoai" id="s_dienthoai" type="text" placeholder="<?=$glo_lang['so_dien_thoai'] ?> (*)" value="<?=!empty($_POST['s_dienthoai']) ? $_POST['s_dienthoai'] : @$sodienthoai ?>" onFocus="if (this.value == '<?=$glo_lang['so_dien_thoai'] ?> (*)'){this.value='';}" onBlur="if (this.value == '') {this.value='<?=$glo_lang['so_dien_thoai'] ?> (*)';}" data-name="<?=$glo_lang['so_dien_thoai'] ?> (*)" data-msso="<?=$glo_lang['nhap_so_dien_thoai'] ?>" data-msso1="<?=$glo_lang['so_dien_thoai_khong_hop_le'] ?>"/>
+                                        </div>
 
-                        
+                                       
+                                           <div class="code">
+                                            <span><img src="<?=$full_url."/load-capcha/" ?>" alt="CAPTCHA code" onclick="$(this).attr('src','<?=$full_url."/load-capcha/" ?>')" class="img_contact_cap"><i class="fa fa-refresh"  onclick="$('#formnamecontact3 .img_contact_cap').attr('src','<?=$full_url."/load-capcha/" ?>')"></i></span>
+                                            <input class="cls_data_check_form_3" data-rong="1" name="mabaove" class="mabaove" type="text" placeholder="<?=$glo_lang['ma_bao_ve'] ?> (*)" value="" onFocus="if (this.value == '<?=$glo_lang['ma_bao_ve'] ?> (*)'){this.value='';}" onBlur="if (this.value == '') {this.value='<?=$glo_lang['ma_bao_ve'] ?> (*)';}" data-msso="<?=$glo_lang['vui_long_nhap_ma_bao_ve'] ?>"/>
+                                          </div>
+                                        
+                                       
+                                        <a onclick="return CHECK_send_lienhe('<?=$full_url ?>/','#formnamecontact3', '.cls_data_check_form_3')" style="cursor:pointer" class="button"><?=$glo_lang['gui']  ?> <img src="images/loading2.gif" class="ajax_img_loading"></a>   
+                                    </form>
+                                  </div>
+
+                           <?php } ?>
 
                         <div id="sharelink">
                           <div class="addthis_toolbox addthis_default_style "> <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_google_plusone" g:plusone:size="medium"></a> <a class="addthis_counter addthis_pill_style"></a> </div>
@@ -230,6 +254,9 @@ style="background: url(<?=$fullpath."/".$bk_register[0]['duongdantin']."/".$bk_r
           <div id="section_1" class="group background_white">
               <div>
                  <?=isset($arr_running['noidung_'.$lang])?$arr_running['noidung_'.$lang]:""?>
+              </div>
+              <div>
+                <?=isset($thongtin['sign_pro'])?$thongtin['sign_pro']:""?>
               </div>
             
 

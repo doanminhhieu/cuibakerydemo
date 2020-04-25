@@ -48,7 +48,7 @@
                              <?php
                                 $gia = GET_gia($rows['giatien'], $rows['giakm'], $glo_lang['dvt'], $glo_lang['gia_lienhe'], "gia_ban", "gia_km", '','' );
                               ?>
-                            <span class="text_from">From</span>
+                          
                             <span class="price_new"> <?=$gia['text_gia'] ?> </span>
                             <span class="price_old"><?=$gia['text_km'] ?></span>
 
@@ -92,10 +92,10 @@ style="background: url(<?=$fullpath."/".$bk_register[0]['duongdantin']."/".$bk_r
 <?php 
     $step = 2;
     $limit = 16;
-    $where = "opt1 = 1";
+    $where = "id_parent = 53";
     $orderby = '';
     $col='';
-    $hotproduct = LAY_baiviet($step,$limit,$where,$orderby,  $col );
+    $product_accessories = LAY_baiviet($step,$limit,$where,$orderby,  $col );
 
     // echo "<pre>";
     //  print_r($newproduct);
@@ -105,15 +105,55 @@ style="background: url(<?=$fullpath."/".$bk_register[0]['duongdantin']."/".$bk_r
 ?>
 
 <?php 
- if(count($hotproduct)) {
+ if(count($product_accessories)) {
  
 ?>
+
 <section class="section_main section_service">
     <div class="container">
-        <h2 class="title_main"><?=$glo_lang['hot_product'] ?></h2>
+         <h2 class="title_main"><?=$glo_lang['product_accessories'] ?></h2>
+        <ul class="list_service slider_accessories cl no_style slider">
+            <?php 
+                  foreach ($product_accessories as $rows) { 
+            ?>
+            <li class="item_service">
+                <div class="box_item_service">
+                    <div class="img_service">
+                        <a <?=full_href($rows)?> title="<?=SHOW_text($rows['tenbaiviet_'.$lang]) ?>">
+                            <img src="<?=checkImage($fullpath, $rows['icon'], $rows['duongdantin'], "") ?>" alt="<?=SHOW_text($rows['tenbaiviet_'.$lang]) ?>">
+                        </a>
+                    </div>
+
+                    <div class="box_des_service">
+                        <div class="price_product">
+                             <?php
+                                $gia = GET_gia($rows['giatien'], $rows['giakm'], $glo_lang['dvt'], $glo_lang['gia_lienhe'], "gia_ban", "gia_km", '','' );
+                              ?>
+                          
+                            <span class="price_new"> <?=$gia['text_gia'] ?> </span>
+                            <span class="price_old"><?=$gia['text_km'] ?></span>
+
+                        </div>
+                        <h3 class="title_service">
+                            <a <?=full_href($rows)?> title="<?=SHOW_text($rows['tenbaiviet_'.$lang]) ?>"><?=SHOW_text($rows['tenbaiviet_'.$lang]) ?></a>
+                        </h3>
+                    </div>
+                </div>
+            </li>
+            <?php } ?>
+        </ul>
+
+      
+    </div>
+</section>
+
+
+<!-- <section class="section_main section_service">
+    <div class="container">
+        <h2 class="title_main"><?=$glo_lang['product_accessories'] ?></h2>
         <ul class="list_service  cl no_style ">
             <?php 
-                  foreach ($hotproduct as $rows) { 
+                  foreach ($product_accessories as $rows) { 
             ?>
             <li class="item_service">
                 <div class="box_item_service">
@@ -146,7 +186,9 @@ style="background: url(<?=$fullpath."/".$bk_register[0]['duongdantin']."/".$bk_r
             <h3><a href="<?=$fullUrl.'/san-pham'?>" class="btn_link">xem thêm ›</a></h3>
         </div>
     </div>
-</section>
+</section> -->
+
+
 <?php } ?>
 
 <?php 
@@ -181,7 +223,7 @@ style="background: url(<?=$fullpath."/".$bk_register[0]['duongdantin']."/".$bk_r
                 <h3> <?=$glo_lang['san_pham_ban_chay'] ?></h3>
               
             </div>
-            <ul class="list_service slider_service cl no_style slider">
+            <ul class="list_service slider_bestselling cl no_style slider">
             <?php 
                   foreach ($bestselling as $rows) { 
             ?>

@@ -22,7 +22,7 @@
                     <ul class="static no_style flex">
                         <li class="static_p">
                           <p class="static-title">Hotline</p>
-                          <p class="static-info"> 0918.036.835  - 0328.616.294 </p>
+                          <p class="static-info"> 0918.036.835  - 0372.775.046 </p>
                         </li>                
                         <li class="static_e">
                           <p class="static-title">Email</p>

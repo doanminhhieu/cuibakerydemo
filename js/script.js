@@ -87,7 +87,7 @@ $(".btn_search").click(function(){
     $('.slider_service').slick({
         dots: false,
         infinite: true,
-        slidesToShow: 3,
+        slidesToShow: 4,
         autoplaySpeed:2000,
         autoplay: true,
         pauseOnHover:false,
@@ -99,7 +99,7 @@ $(".btn_search").click(function(){
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 3,
                 }
             },
             {
@@ -136,6 +136,115 @@ $(".btn_search").click(function(){
 
 
     });
+
+
+    $(".slider_accessories").slick({
+        dots: false,
+        infinite: true,
+        slidesToShow: 4,
+        autoplaySpeed:2000,
+        autoplay: false,
+        pauseOnHover:false,
+        focusOnSelect: false,
+        arrows:true,
+        prevArrow:"<button type='button' class='slick-prev pull-left'><i class=\"fa fa-angle-left\" aria-hidden=\"true\"></i></button>",
+        nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 3,
+
+
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+
+                }
+            },
+             {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+
+                }
+            },
+             {
+                breakpoint: 380,
+                settings: {
+                    slidesToShow: 1,
+
+                }
+            }
+
+        ]
+
+
+    });
+
+
+    $(".slider_bestselling").slick({
+        dots: false,
+        infinite: true,
+        slidesToShow: 3,
+        autoplaySpeed:2000,
+        autoplay: false,
+        pauseOnHover:false,
+        focusOnSelect: false,
+        arrows:true,
+        prevArrow:"<button type='button' class='slick-prev pull-left'><i class=\"fa fa-angle-left\" aria-hidden=\"true\"></i></button>",
+        nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 3,
+
+
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+
+                }
+            },
+             {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+
+                }
+            },
+             {
+                breakpoint: 380,
+                settings: {
+                    slidesToShow: 1,
+
+                }
+            }
+
+        ]
+
+
+    });
+
 
 
     $('.list_album').slick({
@@ -426,6 +535,7 @@ $(".btn_search").click(function(){
                 breakpoint: 990,
                 settings: {
                     arrows:false,
+                    dots: false,
                 }
             }
 
@@ -506,10 +616,11 @@ $(".btn_search").click(function(){
     var slider_nav = $('.slider-nav').slick({
 
         slidesToShow: 3,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
         asNavFor: '.slider-for',
         dots: false,
         centerMode: true,
+        fade:false,
         infinite:true,
         focusOnSelect: true,
         prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
