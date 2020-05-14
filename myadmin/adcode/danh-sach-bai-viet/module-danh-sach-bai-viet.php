@@ -12,7 +12,6 @@
   else if(isset($_GET['them-moi']) || (isset($_GET['edit']) && is_numeric($_GET['edit']))){
       include "module-danh-sach-bai-viet-add.php";
   }else{
-    
     $table         = '#_baiviet';
     $table_slug    = str_replace("#_", "", $table);
     if($id_step    == 2)

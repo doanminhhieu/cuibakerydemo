@@ -155,6 +155,7 @@
 
                                 <?php
                                     $idSanphams = explode(',', $donhang['idsp']);
+                                    $idModels = explode(',', $donhang['idmodel']);
                                     $dongias    = explode(',', $donhang['dongia']);
                                     $soluongs   = explode(',', $donhang['soluong']);
                                     $is_key     = explode('|', $donhang['is_key']);
@@ -162,12 +163,19 @@
                                     $i          = 0;
                                     $tongtien   = 0;
                                     $tinhnang_arr  = LAY_bv_tinhnang(LAY_id_step(2));
-                                    foreach ($idSanphams as $value) {
-                                        $sanpham   = DB_fet("*", "#_baiviet", "`id` = '".$value."'", "", 1);
-                                        $sanpham   = mysql_fetch_assoc($sanpham);
 
-                                        if($sanpham['icon'] != '')
-                                          $thumb = "<img class='img_show_ds' src='".checkImage($fullpath, $sanpham['icon'], $sanpham['duongdantin'], 'thumb_')."'>";
+                                    foreach ($idSanphams as $key =>  $value) {
+                                        $sanpham   = DB_fet("*", "#_baiviet", "`id` = '".$value."'", "", 1);
+
+                                   
+                                        $model =DB_que("SELECT * FROM `#_baiviet_chitiet` WHERE `showhi` = 1 AND `id` = '".$idModels[$key]."' LIMIT 1");
+
+
+                                        $sanpham   = mysql_fetch_assoc($sanpham);
+                                        $model   = mysql_fetch_assoc($model);
+
+                                        if($model['icon'] != '')
+                                          $thumb = "<img class='img_show_ds' src='".checkImage($fullpath, $model['icon'], $model['duongdantin'], 'thumb_')."'>";
                                         else
                                           $thumb = "<img class='img_show_ds' src='".$fullpath."/admin/images/noimage.png'>";
 
@@ -185,7 +193,8 @@
                                         
                                     </td>
                                     <td>
-                                        <a href="<?=$fullpath ?>/<?=$sanpham['seo_name']?>/" target="_blank"><?=$sanpham['tenbaiviet_vi']?></a><p style="margin: 2px 0 0; color: #fd6207; font-size: 12px;"><?=@$tinhnang_arr[$id_bvsl]['tenbaiviet_vi'] ?> </p>
+                                        <a href="<?=$fullpath ?>/<?=$sanpham['seo_name']?>/" target="_blank"><?=$sanpham['tenbaiviet_vi']?></a>
+                                       <p style="margin:10px 0px;"><b><?=SHOW_text($model['tenbaiviet_'.$_SESSION['lang']]) ?></b></p> 
                                         <p class="p_mota_cart">
                                           <?php 
                                           foreach ($tinhnang_arr as $tnr) {

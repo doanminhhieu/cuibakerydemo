@@ -8,31 +8,41 @@
 		error_reporting(0);
 	}
 	$db_localhost 		 		= "localhost";
-	$db_user 			 		= "root";
-	$db_pass 			 		= '';
-	$db_data 			 		= "2020_ducviet";
-	$_SESSION['sub_demo'] 		= "2020_trieuxuan/";
-	$check_fl_domain 			= "webdemo5.pavietnam.vn";
+	$db_user 			 		= "cuibakery_db";
+	$db_pass 			 		= 'Gj2FwdhJ';
+	$db_data 			 		= "cuibakery_db";
+	$cache_file   				= "on";
+	$redis_on_off 				= "off";
 	$_SESSION['sub_demo_check'] = false;
-	$_SESSION['thumuc']  		= $_SESSION['sub_demo']."datafiles/img_data";
+	$_SESSION['thumuc']  		= $_SESSION['sub_demo']."datafiles";
+
+
 
 	if($_SERVER['HTTP_HOST'] 	!= 'localhost' && $_SERVER['HTTP_HOST'] != $check_fl_domain ) {
-		$_SESSION['thumuc']  		= "datafiles/img_data";
+		$_SESSION['thumuc']  		= "datafiles";
 		$_SESSION['sub_demo_check'] = true;
 	}
 
   	$db   = @mysql_connect($db_localhost, $db_user, $db_pass);
 	if(is_string($db)){
-		include("config/db_mysql_error.php");
+		include("db_mysql_error.php");
 		exit();
 	}
 	$dbuse 		= @mysql_select_db($db_data ,$db);
 	if(!$dbuse){
-		include("myadmin/config/db_mysql_error.php");
+		include("db_mysql_error.php");
 		exit();
 	}
 	mysql_query("SET character_set_connection=utf8, character_set_results=utf8, character_set_client=binary");
-	include("function.php");
+	
+	function CAT_CHUOI_tuchuoi($str, $char){
+		$vitri = strpos("pa".$str, $char);
+		if($vitri >= 2){
+			return trim(substr($str, 0,$vitri-2));
+		}
+		return $str;
+	}
+
 
 	$domain1ty	= $_SERVER['HTTP_HOST'];
 	$docpat     = urldecode(mb_strtolower(htmlspecialchars($_SERVER['REQUEST_URI'])));
@@ -58,6 +68,15 @@
         $namty      			= @CAT_CHUOI_tuchuoi($docpat[4], "?");
 	}
 
+	if($motty == "myadmin") {
+		$is_myadmin = "on";
+	}
+
+	include("function.php");
+	include("redis.php");
+
+
+
 	if(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
 		$fullpath		= 'https://'.$domain1ty;
 	}
@@ -67,8 +86,7 @@
 	$fullpath_admin 	= $fullpath."/myadmin/";
 	$auto_key_pass		= "wlh_2019";
 
-
-    $thongtin           = AOK("*", "#_seo", "", "", 1, "", "where_clear");
+    $thongtin           = DB_fet_rd("*", "#_seo", "", "", 1, ""," 1 = 1");
     $thongtin           = reset($thongtin);
 	if(!strpos($_SERVER['REQUEST_URI'],"myadmin") && $thongtin['is_https'] == 1) {
 		if(empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == 'off'){
@@ -89,32 +107,15 @@
 	if(!empty($_REQUEST)){
 		$_REQUEST = PROCESS_data($_REQUEST);
 	}
-	$duongdantin = "datafiles/setone";
-	if(!is_dir('/'.$file_coder.'datafiles/img_data')){
-		@mkdir('/'.$file_coder.'datafiles/img_data','0777');
+	$duongdantin = "datafiles";
+	if(!is_dir('/'.$file_coder.'datafiles/cache')){
+		@mkdir('/'.$file_coder.'datafiles/cache','0777');
 	}
 
 	if(!is_dir("../".$duongdantin)){
 		@mkdir("../".$duongdantin,'0777');
 	}
 	// xu ly 301
-	$link_check 	 = urldecode(mb_strtolower(htmlspecialchars($_SERVER['REQUEST_URI'])));
-	if($link_check  != "") {
-		$link_check 	= rtrim($link_check,"/");
-		$link_check_new = $link_check."/";
-
-		$link_check  	= DB_que("SELECT * FROM `#_lienket` WHERE (`tenbaiviet_vi` = '$link_check' OR `tenbaiviet_vi` = '$link_check_new') AND `showhi` = 1 LIMIT 1");
-		if(mysql_num_rows($link_check)) {
-			$link_check = mysql_fetch_assoc($link_check);
-			if($link_check['lien_ket'] != "" && $link_check['lien_ket'] != $link_check['tenbaiviet_vi']) {
-				//update
-				DB_que("UPDATE `#_lienket` SET `thuc_hien` = `thuc_hien` + 1, `lan_cuoi` = '".time()."' WHERE `tenbaiviet_vi` = '".$link_check['tenbaiviet_vi']."' AND `showhi` = 1 LIMIT 1");
-				//
-				@header("HTTP/1.1 301 Moved Permanently"); 
-				@header("Location: ".$link_check['lien_ket']); 
-				exit();
-			}
-		}
-	} 
+	f_link301();
 	// end
 ?>

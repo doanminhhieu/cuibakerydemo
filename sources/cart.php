@@ -13,13 +13,18 @@ global $glo_lang;
 
   if(isset($_POST['id'])){
 
+
+
+
     $id = isset($_POST['id']) && $_POST['id'] > 0 ? $_POST['id'] : 0;
+    $id_model =  isset($_POST['id_model']) && $_POST['id_model'] > 0 ? $_POST['id_model'] : 0;
     if($id == 0) {
       LOCATION_js($full_url."/gio-hang/");
       exit();
-    } 
+    }
 
     $tinhnang = "";
+
     if(isset($_POST['tinhnang_1'])) {
       $tinhnang .= $tinhnang == "" ? trim($_POST['tinhnang_1']) : ','.trim($_POST['tinhnang_1']);
     }
@@ -30,30 +35,21 @@ global $glo_lang;
       $tinhnang .= $tinhnang == "" ? trim($_POST['tinhnang_3']) : ','.trim($_POST['tinhnang_3']);
     }
 
-    $_SESSION['tinhnang'][$id."_".md5($tinhnang)] = $tinhnang;
-
+  
+    $_SESSION['tinhnang'][$id."_".md5($tinhnang).'_'.$id_model] = $tinhnang;
+ 
     if(isset($_POST['qty_cart']) && is_numeric($_POST['qty_cart']) && $_POST['qty_cart'] > 0){
-      $_SESSION['cart'][$id."_".md5($tinhnang)] = $_POST['qty_cart'];
+      $_SESSION['cart'][$id."_".md5($tinhnang)."_".$id_model] = $_POST['qty_cart'];
     }
     else{
-
-      $_SESSION['cart'][$id."_".md5($tinhnang)] = 1;
-    }
-
-    if(isset($_POST['id_model']) && $_POST['id_model'] > 0){
-      
-         $_SESSION['cart'][$id."_".md5($tinhnang)."_".$_POST['id_model']] = $_POST['qty_cart'];
+      $_SESSION['cart'][$id."_".md5($tinhnang)."_".$id_model] = 1;
     }
 
     LOCATION_js($full_url."/gio-hang/");
-
   }
-
- // print_r($_GET['qty_cart']."fsdfsdf");
-    
-
-  print_r($_SESSION['cart']);
-  // unset($_SESSION['cart']);
+  //print_r( $_SESSION['cart']);
+  //print_r( $_SESSION['tinhnang']);
+  //unset($_SESSION['tinhnang']);
  
   $thongtin_step   = LAY_anhstep_now(LAY_id_step(1));
 ?>
@@ -116,11 +112,17 @@ global $glo_lang;
                     $stt           = 0;
                     
                     foreach ($_SESSION['cart'] as $key => $value)  { 
-                      $id_sp     = explode("_", $key);
-                      $id_sp     = $id_sp[0];
+                      $explode_sp=  explode("_", $key);
+                      $id_sp     = $explode_sp[0];
+                      $id_sp_model  = $explode_sp[2];
                       $stt       ++;
                       $sanpham   = DB_que("SELECT * FROM `#_baiviet` WHERE `showhi` = 1 AND `id` = '".$id_sp."' LIMIT 1");
+                      $model = DB_que("SELECT * FROM `#_baiviet_chitiet` WHERE `showhi` = 1 AND `id` = '".$id_sp_model."' LIMIT 1");
+
+                      
                       if(mysql_num_rows($sanpham) > 0) {
+
+                        $model = mysql_fetch_assoc($model);
                         $sanpham    = mysql_fetch_assoc($sanpham);
                         $dongia     = check_gia_sql($id_sp, @$_SESSION['tinhnang'][$key], $sanpham['giatien']);
 
@@ -134,11 +136,12 @@ global $glo_lang;
                    <tr>
                       <!-- <td class="cls_cart_mb" ><?=$stt ?></td> -->
                       <td style="text-align:left" title="<?=$glo_lang['cart_ten_sp'] ?>" class="dv-anh-cart-sp">
-                        <a href="<?=GET_link($full_url, SHOW_text($sanpham['seo_name'])) ?>"><img src="<?=checkImage($fullpath, $sanpham['icon'], $sanpham['duongdantin'], 'thumb_') ?>" alt="<?=SHOW_text($sanpham['tenbaiviet_'.$_SESSION['lang']]) ?>"/></a>
+                        <a href="<?=GET_link($full_url, SHOW_text($model['seo_name'])) ?>"><img src="<?=checkImage($fullpath, $model['icon'], $model['duongdantin'], 'thumb_') ?>" alt="<?=SHOW_text($model['tenbaiviet_'.$_SESSION['lang']]) ?>"/></a>
+
                         <div class="dv-anh">
 
                           <a href="<?=GET_link($full_url, SHOW_text($sanpham['seo_name'])) ?>"><?=SHOW_text($sanpham['tenbaiviet_'.$_SESSION['lang']]) ?></a>
-                          <p><?=SHOW_text($sanpham['p1']) ?></p> 
+                          <p><?=SHOW_text($model['tenbaiviet_'.$_SESSION['lang']]) ?></p> 
                           
                           <p class="p_mota_cart">
                             <?php 

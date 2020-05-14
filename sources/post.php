@@ -248,6 +248,7 @@
     include _source."phantrang_kietxuat_ajax.php";
     exit();
   }
+
   if (!empty($_POST) && $motty == "check_donhang") {
     $madh   = isset($_POST['madh']) ? $_POST['madh'] : "";
     $id     = isset($_POST['id']) ? $_POST['id'] : 0;
@@ -808,8 +809,10 @@
 
  
   if($motty == "send_form" && isset($_POST['gui_donhang'])){
+
     if(isset($_SESSION['cart']) && $_SESSION['cart'] != NULL){
       $list_id_sp       = "";
+      $list_id_model    = "";
       $so_luong         = "";
       $don_gia          = "";
       $is_key           = "";
@@ -831,8 +834,10 @@
       foreach ($_SESSION['cart'] as $key => $value) { 
 
           // $id_sp     = $key;
-          $id_sp     = explode("_", $key);
-          $id_sp     = $id_sp[0];
+          $explode_sp=  explode("_", $key);
+          $id_sp     = $explode_sp[0];
+          $id_model  = $explode_sp[2];
+
 
           $sanpham   = DB_que("SELECT * FROM `#_baiviet` WHERE `showhi` = 1 AND `id` = '".$id_sp."' LIMIT 1");
           if(mysql_num_rows($sanpham) > 0) {
@@ -845,6 +850,7 @@
               $don_vi     .= @$_SESSION['n_donvi'][$id_sp]."|";
 
               $list_id_sp .= $id_sp.",";
+              $list_id_model.= $id_model.",";
               $so_luong   .= $value.",";
               $don_gia    .= $dongia.",";
               $thanhtien   = $value*$dongia;
@@ -902,6 +908,7 @@
       $thongtin_dathang .= "</table></div>";
 
       $list_id_sp       = trim($list_id_sp,",");
+      $list_id_model    = trim($list_id_model,",");
       $so_luong         = trim($so_luong,",");
       $don_gia          = trim($don_gia,",");
       $is_key           = trim($is_key,"|");
@@ -993,6 +1000,7 @@
       $data['diachi']             = $s_address;
       $data['ghichu']             = $s_message;
       $data['idsp']               = $list_id_sp;
+      $data['idmodel']            = $list_id_model;
       $data['soluong']            = $so_luong;
       $data['dongia']             = $don_gia;
       $data['ngaydat']            = time();

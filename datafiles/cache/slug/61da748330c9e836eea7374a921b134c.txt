@@ -1,1 +1,0 @@
-[{"id":"134","bang":"baiviet","slug":"mau-banh-sinh-nhat-trai-tim-in-hinh-cap-doi","id_bang":"78","step":"2"}]

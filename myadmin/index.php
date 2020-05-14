@@ -1,4 +1,5 @@
 <?php
+
   include("config/sql.php");
   if(!isset($_SESSION['onlyone_time'])) $_SESSION['onlyone_time'] = time();
   define("luu_lai", "Lưu lại");
@@ -48,16 +49,21 @@
     if($rows['id'] == 62) $name_list_opti = $rows['ten_key'];
   }
 
+
   include _source.'post.php';
+  
 
   //check login IP
   if(!empty($_SESSION['luluwebproadmin'])) {
+
     $check_iplogin = DB_que("SELECT * FROM `#_members` WHERE `id`='".sql_id($_SESSION['luluwebproadmin'])."' AND `ip_login` = '".sql_id(GET_ip())."' LIMIT 1");
+   
     if(!mysql_num_rows($check_iplogin)) {
       unset($_SESSION['luluwebproadmin']);
       ALERT_js("Tài khoản được đăng nhập từ nơi khác!");
       LOCATION_js($fullpath."/myadmin/");
     }
+
     $check_iplogin = mysql_fetch_assoc($check_iplogin);
   }
   //
